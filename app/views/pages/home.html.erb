@@ -4,4 +4,5 @@
 
 <%@spaceships.each do |spaceship| %>
   <%= render "/spaceships/card", spaceship: spaceship %>
+  <%= link_to "see details", spaceship_path(spaceship) %>
 <% end %>
