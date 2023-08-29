@@ -1,0 +1,9 @@
+<div class="container">
+  <h2><%= @spaceship.name %></h2>
+  <li><i class="fa-solid fa-paint-roller"> <%= @spaceship.color %></i></li>
+  <li><i class="fa-solid fa-chair"> <%= @spaceship.seats %></i></li>
+  <li><i class="fa-regular fa-calendar-days"> <%= @spaceship.year %></i> </li>
+
+  <p> <%= @spaceship.description %></p>
+  <p>Owner: <%= @spaceship.user.email %> </p>
+</div>
