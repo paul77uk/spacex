@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for([ @booking, @spaceship, @user]) do |f| %>
+    <%= f.input :start_date, as: :date %>
+    <%= f.input :end_date, as: :date %>
+    <%= f.input :price %>
+    <%= f.submit "New booking", class: "btn btn-primary" %>
+  <% end %>
+</div>
