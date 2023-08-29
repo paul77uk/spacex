@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :spaceships, only: [:show] do
     resources :bookings, only: [:new, :create]
   end
+  resources :spaceships, only: [:show, :new, :create]
 end
