@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,27 +7,38 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # User seeds
-Names = [
-"Han Solo"
-"Doctor Who",
-"James T. Kirk",
-"Luke Skywalker",
-"Zaphod Beeblebrox",
-"Hubert J. Farnsworth",
-"Starman",
-"Laika",
-"Francis R. Scobee",
-"Lone Starr",
-"Captain B. McCrea",
-"Jet Black",
-"Tintin",
-"Tim Burton",
-"Rick Sanchez",
-"David Bowman",
-"Joseph Cooper",
-"Neil Armstrong"
+names = [
+  "Han Solo",
+  "Doctor Who",
+  "James T. Kirk",
+  "Luke Skywalker",
+  "Zaphod Beeblebrox",
+  "Hubert J. Farnsworth",
+  "Starman Dude",
+  "Laika Subaka",
+  "Francis R. Scobee",
+  "Lone Starr",
+  "Captain B. McCrea",
+  "Jet Black",
+  "Tintin Houppette",
+  "Tim Burton",
+  "Rick Sanchez",
+  "David Bowman",
+  "Joseph Cooper",
+  "Neil Armstrong"
 ]
 
+names.each do |name|
+  first_name = name.split.first
+  last_name = name.split.last
+
+  User.create!(
+    first_name: first_name,
+    last_name: last_name,
+    email: Faker::Internet.unique.email,
+    phone_number: Faker::PhoneNumber.unique.phone_number_with_country_code
+  )
+end
 
 # Spaceships seeds
 Spaceship.create(
@@ -147,7 +159,7 @@ Spaceship.create(
   description: "Built initially by the Syldavian government and Professor Calculus to achieve his goal: to build a rocket that will transport human beings to the Moon. The original design is inspired from the works of Wernher von Braun. Decked out in the timeless hues of Classic Red and White, this rocket is more than just transportation—it's a passport to adventure. With seats for the intrepid duo and their trusty Snowy, it's the ultimate mode of exploration for uncovering hidden treasures, solving mysteries, and outwitting villains. From the highest peaks to the deepest seas, the X-FLR 6 will take you on a journey of excitement, intrigue, and friendship")
 
 Spaceship.create(
-  owner_id:
+  owner_id:,
   name: "Flying Saucer",
   color: "Metal Grey",
   seats: 3,
