@@ -24,8 +24,10 @@ names = [
   "Tim Burton",
   "Rick Sanchez",
   "David Bowman",
+  "Darth Vader",
   "Joseph Cooper",
-  "Neil Armstrong"
+  "Neil Armstrong",
+  "Stromtrooper Officer"
 ]
 
 names.each do |name|
