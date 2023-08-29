@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to SpaceX (not the shit one by Elon) </h1>
+<P>navbar</P>
+<p>Put a nice banner here...</p>
+
+<%@spaceships.each do |spaceship| %>
+  <ul>
+    <li><%= spaceship.name %></li>
+  </ul>
+<% end %>
