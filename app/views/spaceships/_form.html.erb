@@ -1,0 +1,27 @@
+<%= simple_form_for(spaceship, data: { insert_in_list_target: "form", action:'submit->insert-in-list#send' }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.label :name %>:<br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :color %>:<br>
+    <%= f.text_field :color %><br>
+
+    <%= f.label :seats %>:<br>
+    <%= f.text_field :seats %><br>
+
+    <%= f.label :year %>:<br>
+    <%= f.text_field :year %><br>
+
+    <%= f.label :description %>:<br>
+    <%= f.text_field :description %><br>
+  </div>
+
+  <br>
+
+  <div class="form-actions btn-primary">
+    <%= f.button :submit %>
+  </div>
+<% end %>
