@@ -8,22 +8,22 @@
 # User seeds
 Names = [
 "Han Solo"
-"Doctor Who"
-"James T. Kirk"
-"Luke Skywalker"
-"Zaphod Beeblebrox"
-"Hubert J. Farnsworth"
-"Starman"
-"Laika"
-"Francis R. Scobee"
-"Lone Starr"
-"Captain B. McCrea"
-"Jet Black"
-"Tintin"
-"Tim Burton"
-"Rick Sanchez"
-"David Bowman"
-"Joseph Cooper"
+"Doctor Who",
+"James T. Kirk",
+"Luke Skywalker",
+"Zaphod Beeblebrox",
+"Hubert J. Farnsworth",
+"Starman",
+"Laika",
+"Francis R. Scobee",
+"Lone Starr",
+"Captain B. McCrea",
+"Jet Black",
+"Tintin",
+"Tim Burton",
+"Rick Sanchez",
+"David Bowman",
+"Joseph Cooper",
 "Neil Armstrong"
 ]
 
