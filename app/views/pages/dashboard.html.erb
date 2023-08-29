@@ -1,9 +1,9 @@
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container mt-3">
+  <div class="row">
     <div class="col-6">
       <h3>My Bookings</h3>
       <% @current_user_bookings.each do |booking| %>
-      <div class="card text-dark bg-light mb-3">
+      <div class="card text-dark bg-light mb-3 w-100">
         <img src='https://preview.redd.it/small-spaceship-v0-6unexiny1me91.png?width=640&crop=smart&auto=webp&s=60ae73b06bb92d5080185d9c89aa724740204ddb', class="card-img-top" alt="spaceship image">
         <div class="card-body">
             <h5 class="card-title fw-bold"><%= booking.spaceship.name %></h5>
@@ -19,16 +19,15 @@
     <div class="col-6">
       <h3>My Spaceships</h3>
       <% @current_user_spaceships.each do |spaceship| %>
-        <div class="card text-dark bg-light mb-3">
-        <img src='https://preview.redd.it/small-spaceship-v0-6unexiny1me91.png?width=640&crop=smart&auto=webp&s=60ae73b06bb92d5080185d9c89aa724740204ddb', class="card-img-top" alt="spaceship image">
-        <div class="card-body">
-            <h5 class="card-title fw-bold"><%= spaceship.name %></h5>
-            <p class="card-text"><%= spaceship.description %></p>
-            <p class="card-text">color: <%= spaceship.color %></p>
-            <p class="card-text">seats: <%= spaceship.seats %></p>
-            <p class="card-text">year: <%= spaceship.year %></p>
-        </div>
-
+        <div class="card text-dark bg-light mb-3 w-100">
+          <img src='https://preview.redd.it/small-spaceship-v0-6unexiny1me91.png?width=640&crop=smart&auto=webp&s=60ae73b06bb92d5080185d9c89aa724740204ddb', class="card-img-top" alt="spaceship image">
+          <div class="card-body">
+              <h5 class="card-title fw-bold"><%= spaceship.name %></h5>
+              <p class="card-text"><%= spaceship.description %></p>
+              <p class="card-text">color: <%= spaceship.color %></p>
+              <p class="card-text">seats: <%= spaceship.seats %></p>
+              <p class="card-text">year: <%= spaceship.year %></p>
+          </div>
       </div>
       <% end %>
     </div>
