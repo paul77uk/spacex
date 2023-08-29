@@ -39,6 +39,7 @@ names.each do |name|
   User.create!(
     first_name: first_name,
     last_name: last_name,
+    password: "password",
     email: Faker::Internet.unique.email,
     phone_number: Faker::PhoneNumber.unique.phone_number_with_country_code
   )
@@ -46,7 +47,7 @@ end
 
 # spaceship = Spaceships seeds
 spaceship = Spaceship.new(
-  owner_id: 1,
+  user_id: 1,
   name: "Millenium Falcon",
   color: "Grey",
   seats: 4,
@@ -58,7 +59,7 @@ spaceship.photo.attach(io: file, filename: "Millenium Falcon", content_type: "im
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 2,
+  user_id: 2,
   name: "TARDIS",
   color: "Blue",
   seats: 2,
@@ -70,7 +71,7 @@ spaceship.photo.attach(io: file, filename: "TARDIS", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 3,
+  user_id: 3,
   name: "USS Enterprise",
   color: "Gray",
   seats: 1000,
@@ -82,7 +83,7 @@ spaceship.photo.attach(io: file, filename: "USS Enterprise", content_type: "imag
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 4,
+  user_id: 4,
   name: "X-Wing Starfighter",
   color: "White and Orange",
   seats: 1,
@@ -94,7 +95,7 @@ spaceship.photo.attach(io: file, filename: "X-Wing Starfighter", content_type: "
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 5,
+  user_id: 5,
   name: "Heart of Gold",
   color: "Shiny Gold",
   seats: 7,
@@ -106,7 +107,7 @@ spaceship.photo.attach(io: file, filename: "Heart of Gold", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 6,
+  user_id: 6,
   name: "Planet Express Ship",
   color: "Green and Red",
   seats: 3,
@@ -118,7 +119,7 @@ spaceship.photo.attach(io: file, filename: "Planet Express Ship", content_type: 
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 7,
+  user_id: 7,
   name: "Tesla Roadster",
   color: "Red",
   seats: 2,
@@ -130,7 +131,7 @@ spaceship.photo.attach(io: file, filename: "Tesla Roadster", content_type: "imag
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 8,
+  user_id: 8,
   name: "Sputnik 2",
   color: "Grey",
   seats: 1,
@@ -142,7 +143,7 @@ spaceship.photo.attach(io: file, filename: "Sputnik 2", content_type: "image/jpg
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 9,
+  user_id: 9,
   name: "Challenger",
   color: "White",
   seats: 7,
@@ -154,7 +155,7 @@ spaceship.photo.attach(io: file, filename: "Challenger", content_type: "image/jp
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 10,
+  user_id: 10,
   name: "Eagle 5",
   color: "White",
   seats: 2,
@@ -166,7 +167,7 @@ spaceship.photo.attach(io: file, filename: "Eagle 5", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 11,
+  user_id: 11,
   name: "Axiom",
   color: "Grey",
   seats: 600_000,
@@ -178,7 +179,7 @@ spaceship.photo.attach(io: file, filename: "Axiom", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 12,
+  user_id: 12,
   name: "Bebop",
   color: "Dark grey",
   seats: 5,
@@ -189,7 +190,7 @@ spaceship.photo.attach(io: file, filename: "Bebop", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 13,
+  user_id: 13,
   name: "X-FLR 6",
   color: "Red and White",
   seats: 4,
@@ -200,7 +201,7 @@ spaceship.photo.attach(io: file, filename: "", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 14,
+  user_id: 14,
   name: "Flying Saucer",
   color: "Metal Grey",
   seats: 3,
@@ -211,7 +212,7 @@ spaceship.photo.attach(io: file, filename: "Flying Saucer", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 15,
+  user_id: 15,
   name: "Space Cruiser",
   color: "Grey",
   seats: 4,
@@ -222,7 +223,7 @@ spaceship.photo.attach(io: file, filename: "Space Cruiser", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 16,
+  user_id: 16,
   name: "Discovery One",
   color: "White",
   seats: 12,
@@ -233,7 +234,7 @@ spaceship.photo.attach(io: file, filename: "Discovery One", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 17,
+  user_id: 17,
   name: "Lamba Shuttle",
   color: "White",
   seats: 20,
@@ -244,7 +245,7 @@ spaceship.photo.attach(io: file, filename: "Lamba Shuttle", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 18,
+  user_id: 18,
   name: "The Ranger",
   color: "Grey",
   seats: 4,
@@ -255,7 +256,7 @@ spaceship.photo.attach(io: file, filename: "The Ranger", content_type: "image/jp
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 19,
+  user_id: 19,
   name: "Apollo 11",
   color: "White and Black",
   seats: 3,
@@ -266,7 +267,7 @@ spaceship.photo.attach(io: file, filename: "Apollo 11", content_type: "image/jpg
 spaceship.save
 
 spaceship = Spaceship.new(
-  owner_id: 20,
+  user_id: 20,
   name: "TIE Fighter",
   color: "Imperial Black",
   seats: 1,
