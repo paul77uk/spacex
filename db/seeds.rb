@@ -78,7 +78,7 @@ spaceship = Spaceship.new(
   year: 2250,
   description: "Embark on the most legendary voyage through space with the USS Enterprise, the starship that redefines exploration, diplomacy, and the human spirit! This ship is more than just a vessel—it's the heart and soul of the United Federation of Planets. With countless seats for numerous explorers and officers, it's the ultimate symbol of unity and boundless curiosity. From the five-year mission under Captain Kirk to the galaxy-spanning adventures of Captain Picard, the USS Enterprise stands as a testament to the power of diversity, cooperation, and the infinite potential of the final frontier.")
 
-file = URI.open( "https://en.wikipedia.org/wiki/Starship_Enterprise#/media/File:USS_Enterprise_(NCC-1701-A).jpg")
+file = URI.open("https://en.wikipedia.org/wiki/Starship_Enterprise#/media/File:USS_Enterprise_(NCC-1701-A).jpg")
 spaceship.photo.attach(io: file, filename: "USS Enterprise", content_type: "image/jpg")
 spaceship.save
 
