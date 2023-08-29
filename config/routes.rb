@@ -5,8 +5,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-  # create a spaceship
-  get "spaceships/new", to: "spaceships#new", as: :new_spaceship
-  post "spaceships", to: "spaceships#create"
+  resources :spaceships, only: [:show, :new, :create]
 end
