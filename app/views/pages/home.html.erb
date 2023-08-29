@@ -11,10 +11,12 @@
 <div class="container mt-3">
   <%= render "search_bar" %>
   <h2>Spaceships</h2>
-  <div class="card p-3">
+  <div class="d-flex">
     <%@spaceships.each do |spaceship| %>
-      <%= render "/spaceships/card", spaceship: spaceship %>
-      <%= link_to "see details", spaceship_path(spaceship) %>
+      <div class="card p-3">
+        <%= render "/spaceships/card", spaceship: spaceship %>
+        <%= link_to "see details", spaceship_path(spaceship) %>
+      </div>
     <% end %>
   </div>
 </div>
