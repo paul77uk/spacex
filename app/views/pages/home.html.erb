@@ -1,8 +1,20 @@
-<h1>Welcome to SpaceX (not the shit one by Elon) </h1>
-<P>navbar</P>
-<p>Put a nice banner here...</p>
+<%= render "navbar" %>
 
-<%@spaceships.each do |spaceship| %>
-  <%= render "/spaceships/card", spaceship: spaceship %>
-  <%= link_to "see details", spaceship_path(spaceship) %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg);">
+  <div class="container">
+    <h1>SpaceX</h1>
+    <h3>Take a trip to the stars</h3>
+  </div>
+</div>
+
+
+<div class="container mt-3">
+  <%= render "search_bar" %>
+  <h2>Spaceships</h2>
+  <div class="card p-3">
+    <%@spaceships.each do |spaceship| %>
+      <%= render "/spaceships/card", spaceship: spaceship %>
+      <%= link_to "see details", spaceship_path(spaceship) %>
+    <% end %>
+  </div>
+</div>
