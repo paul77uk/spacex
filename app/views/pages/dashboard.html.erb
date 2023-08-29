@@ -1,0 +1,14 @@
+<div class="row justify-content-end">
+  <div class="col-6">
+    <h3>My Bookings</h3>
+    <% @current_user_bookings.each do |booking| %>
+     <div><%= booking.spaceship.name %></div>
+    <% end %>
+  </div>
+  <div class="col-6">
+    <h3>My Spaceships</h3>
+    <% @current_user_spaceships.each do |spaceship| %>
+      <div><%= spaceship.name %></div>
+    <% end %>
+  </div>
+</div>
