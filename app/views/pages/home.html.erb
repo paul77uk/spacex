@@ -3,7 +3,5 @@
 <p>Put a nice banner here...</p>
 
 <%@spaceships.each do |spaceship| %>
-  <ul>
-    <li><%= spaceship.name %></li>
-  </ul>
+  <%= render "/spaceships/card", spaceship: spaceship %>
 <% end %>

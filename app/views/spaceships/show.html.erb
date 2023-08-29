@@ -1,0 +1,6 @@
+<div class="container">
+  <%= render "card", spaceship: @spaceship %>
+
+  <p> <%= @spaceship.description %></p>
+  <p>Owner: <%= @spaceship.user.email %> </p>
+</div>
