@@ -19,11 +19,14 @@
         <i class="fa-solid fa-shuttle-space mx-1"></i> Home
       <% end %>
       </div>
-      <% if user_signed_in? %>
-        <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'text-decoration-none btn btn-primary' %>
-      <% else %>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'text-decoration-none' %>
-      <% end %>
+      <div class="d-flex align-items-center gap-3">
+        <%= link_to 'Dashboard', pages_dashboard_path, class: 'text-decoration-none' %>
+        <% if user_signed_in? %>
+          <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'text-decoration-none btn btn-primary' %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: 'text-decoration-none', class: 'text-decoration-none btn btn-primary' %>
+        <% end %>
+      </div>
     </div>
   </div>
     <%= yield %>
