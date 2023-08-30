@@ -11,8 +11,8 @@
   <h2>Spaceships</h2>
   <div class="d-flex flex-wrap">
     <%@spaceships.each do |spaceship| %>
-      <div class="card p-3 col-4">
-        <%= render "/spaceships/card", spaceship: spaceship %>
+      <div class="card p-3 col-4 m-2">
+        <%= render "indexcard", spaceship: spaceship %>
         <%= link_to "see details", spaceship_path(spaceship) %>
       </div>
     <% end %>
