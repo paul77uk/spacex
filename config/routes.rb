@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :spaceships, only: [:show, :new, :create] do
     resources :bookings, only: [:create]
   end
+
+  resources :bookings, only: [:destroy]
 end
