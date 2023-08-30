@@ -1,5 +1,6 @@
 class SpaceshipsController < ApplicationController
-  before_action :set_spaceship, only: [:show, :edit, :destroy]
+  skip_before_action :authenticate_user!, only: :show
+  before_action :set_spaceship, only: [:show, :edit, :update, :destroy]
 
   def index
     @spaceships = Spaceship.all
@@ -10,19 +11,26 @@ class SpaceshipsController < ApplicationController
   end
 
   def show
-    @spaceship = Spaceship.find(params[:id])
     @booking = Booking.new
   end
 
   def create
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
+    save_changes
+  end
 
-    if @spaceship.save
-      redirect_to spaceship_path(@spaceship)
-    else
-      render :new, status: :unprocessable_entity
-    end
+  def edit
+  end
+
+  def destroy
+    @spaceship.destroy
+    redirect_to pages_dashboard_path
+  end
+
+  def update
+    @spaceship.update(spaceship_params)
+    save_changes
   end
 
   def edit
@@ -41,5 +49,13 @@ class SpaceshipsController < ApplicationController
 
   def set_spaceship
     @spaceship = Spaceship.find(params[:id])
+  end
+
+  def save_changes
+    if @spaceship.save
+      redirect_to spaceship_path(@spaceship)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 end
