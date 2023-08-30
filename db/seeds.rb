@@ -32,15 +32,15 @@ names = [
 ]
 User.destroy_all
 Spaceship.destroy_all
+Booking.destroy_all
+
 names.each do |name|
   first_name = name.split.first
   last_name = name.split.last
 
   User.create!(
-    first_name: first_name,
-    last_name: last_name,
-    password: "password",
     email: Faker::Internet.unique.email,
+    password: "password",
     phone_number: Faker::PhoneNumber.unique.phone_number_with_country_code
   )
 end
@@ -155,7 +155,7 @@ spaceship.photo.attach(io: file, filename: "Challenger", content_type: "image/jp
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample0.id,
+  user_id: User.all.sample.id,
   name: "Eagle 5",
   color: "White",
   seats: 2,
@@ -167,7 +167,7 @@ spaceship.photo.attach(io: file, filename: "Eagle 5", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample1.id,
+  user_id: User.all.sample.id,
   name: "Axiom",
   color: "Grey",
   seats: 600_000,
@@ -179,7 +179,7 @@ spaceship.photo.attach(io: file, filename: "Axiom", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample2.id,
+  user_id: User.all.sample.id,
   name: "Bebop",
   color: "Dark grey",
   seats: 5,
@@ -190,7 +190,7 @@ spaceship.photo.attach(io: file, filename: "Bebop", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample3.id,
+  user_id: User.all.sample.id,
   name: "X-FLR 6",
   color: "Red and White",
   seats: 4,
@@ -201,18 +201,7 @@ spaceship.photo.attach(io: file, filename: "", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample4.id,
-  name: "Flying Saucer",
-  color: "Metal Grey",
-  seats: 3,
-  year: 1996,
-  description: "Old school saucer with a truly vintage look, it is a zany interstellar craft of choice for Mars' most unconventional visitors and a testament to Martians' unique taste in spacecraft aesthetics. Try the ultimate ride for extraterrestrial tricksters!")
-file = URI.open("https://static.wikia.nocookie.net/spaceship = spaceships/images/1/1b/Mars.jpg/revision/latest?cb=20160225185208")
-spaceship.photo.attach(io: file, filename: "Flying Saucer", content_type: "image/jpg")
-spaceship.save
-
-spaceship = Spaceship.new(
-  user_id: User.all.sample5.id,
+  user_id: User.all.sample.id,
   name: "Space Cruiser",
   color: "Grey",
   seats: 4,
@@ -223,7 +212,7 @@ spaceship.photo.attach(io: file, filename: "Space Cruiser", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample6.id,
+  user_id: User.all.sample.id,
   name: "Discovery One",
   color: "White",
   seats: 12,
@@ -234,7 +223,7 @@ spaceship.photo.attach(io: file, filename: "Discovery One", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample7.id,
+  user_id: User.all.sample.id,
   name: "Lamba Shuttle",
   color: "White",
   seats: 20,
@@ -245,7 +234,7 @@ spaceship.photo.attach(io: file, filename: "Lamba Shuttle", content_type: "image
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample8.id,
+  user_id: User.all.sample.id,
   name: "The Ranger",
   color: "Grey",
   seats: 4,
@@ -256,7 +245,7 @@ spaceship.photo.attach(io: file, filename: "The Ranger", content_type: "image/jp
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample9.id,
+  user_id: User.all.sample.id,
   name: "Apollo 11",
   color: "White and Black",
   seats: 3,
@@ -267,7 +256,7 @@ spaceship.photo.attach(io: file, filename: "Apollo 11", content_type: "image/jpg
 spaceship.save
 
 spaceship = Spaceship.new(
-  user_id: User.all.sample0.id,
+  user_id: User.all.sample.id,
   name: "TIE Fighter",
   color: "Imperial Black",
   seats: 1,
@@ -276,3 +265,10 @@ spaceship = Spaceship.new(
 file = URI.open("https://starwars.fandom.com/wiki/TIE_Series?file=TIEfighter-Fathead.png")
 spaceship.photo.attach(io: file, filename: "TIE Fighter", content_type: "image/png")
 spaceship.save
+
+User.all.each do |user|
+  n = rand(0..5)
+  Spaceship.all.sample(n).each do |my_spaceship|
+    Booking.create(user_id: user.id, spaceship_id: my_spaceship.id, start_date: DateTime.now.strftime("%F"), end_date: DateTime.now.next_day(7).strftime("%F")) unless user.id == my_spaceship.user_id
+  end
+end
