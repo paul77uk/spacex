@@ -7,7 +7,7 @@
       <% if @spaceship.photo.attached? %>
         <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
       <% else %>
-        <%= image_tag('spaceship.jpeg') %>
+        <%= image_tag('spaceship.jpeg', :height => 250) %>
       <% end %>
     </div>
   </div>
