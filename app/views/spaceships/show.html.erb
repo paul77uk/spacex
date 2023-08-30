@@ -10,7 +10,7 @@
 
 
   <p> <%= @spaceship.description %></p>
-  <p>Owner: <%= @spaceship.user.email %> </p>
+  <p>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></p>
 
   <div data-controller="displaybookingform">
     <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>

@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+
     @spaceship = Spaceship.find(params[:spaceship_id])
     @booking = Booking.new(booking_params)
     @booking.spaceship = @spaceship
@@ -14,6 +15,12 @@ class BookingsController < ApplicationController
     else
       render 'spaceships/:id', status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to pages_dashboard_path
   end
 
   private

@@ -6,6 +6,7 @@
       <div class="card text-dark bg-light mb-3 w-100">
         <%= cl_image_tag(booking.spaceship.photo.key, crop: :fit) %>
         <div class="card-body">
+            <div><%= link_to "Delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></div>
             <h5 class="card-title fw-bold"><%= booking.spaceship.name %></h5>
             <p class="card-text"><%= booking.spaceship.description %></p>
             <p class="card-text"><span class="fw-bold text-muted">color:</span> <%= booking.spaceship.color %></p>
