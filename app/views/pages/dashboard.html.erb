@@ -7,6 +7,8 @@
           <div class="card text-dark bg-light mb-3 w-75" style="height: 500px;">
             <% if booking.spaceship.photo.attached?  %>
               <%= cl_image_tag(booking.spaceship.photo.key, crop: :fill, height: 200) %>
+            <% else %>
+              <%= image_tag('spaceship.jpeg') %>
             <% end %>
             <div class="card-body">
                 <div><%= link_to "Delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></div>

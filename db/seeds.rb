@@ -28,7 +28,7 @@ names = [
   "Darth Vader",
   "Joseph Cooper",
   "Neil Armstrong",
-  "Stromtrooper Officer"
+  "Stormtrooper Officer"
 ]
 User.destroy_all
 Spaceship.destroy_all
