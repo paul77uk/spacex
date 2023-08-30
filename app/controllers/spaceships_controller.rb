@@ -33,14 +33,6 @@ class SpaceshipsController < ApplicationController
     save_changes
   end
 
-  def edit
-  end
-
-  def destroy
-    @spaceship.destroy
-    redirect_to pages_dashboard_path, status: :see_other
-  end
-
   private
 
   def spaceship_params

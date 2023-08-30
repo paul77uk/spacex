@@ -11,11 +11,7 @@
       <% end %>
     </div>
   </div>
-  <div>
-    <% if @spaceship.photo.attached?  %>
-      <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
-    <% end %>
-  </div>
+
   <div>
     <% if user_signed_in? %>
       <% if current_user.id == @spaceship.user_id %>
@@ -26,7 +22,7 @@
   </div>
 </div>
 
-
+<div>
   <p> <%= @spaceship.description %></p>
   <p>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></p>
 
@@ -46,14 +42,5 @@
     <% end %>
   <% else %>
     <p><strong>Want to book? You have to <%= link_to "sign in", new_user_session_path %></strong></p>
-  <% end %>
-
-  <% if @spaceship.bookings.empty? %>
-    <%= link_to "Delete this spaceship X",
-      spaceship_path(@spaceship),
-      data: {turbo_method: :delete, turbo_confirm: "Sure?"}
-    %>
-  <% else %>
-    <p>You cannot delete since it has bookings</p>
   <% end %>
 </div>
