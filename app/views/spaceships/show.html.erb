@@ -22,18 +22,19 @@
   <p> <%= @spaceship.description %></p>
   <p>Owner: <%= @spaceship.user.email %> </p>
 
-
-  <div data-controller="displaybookingform">
-    <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
-    <div class="d-none" data-displaybookingform-target="form">
-       <% if user_signed_in? %>
-        <%= render "booking_form"%>
-       <% else %>
-       <%= render "sign_in" %>
-        <%# <%= link_to 'sign in first', new_user_session_path %>
-      <% end %>
+  <% if current_user.id != @spaceship.user_id %>
+    <div data-controller="displaybookingform">
+      <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
+      <div class="d-none" data-displaybookingform-target="form">
+        <% if user_signed_in? %>
+          <%= render "booking_form"%>
+        <% else %>
+        <%= render "sign_in" %>
+          <%# <%= link_to 'sign in first', new_user_session_path %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
 
 
