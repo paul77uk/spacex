@@ -291,6 +291,7 @@ spaceship.save
 User.all.each do |user|
   n = rand(0..5)
   Spaceship.all.sample(n).each do |my_spaceship|
-    Booking.create(user_id: user.id, spaceship_id: my_spaceship.id, start_date: DateTime.now.strftime("%F"), end_date: DateTime.now.next_day(7).strftime("%F")) unless user.id == my_spaceship.user_id
+    price = rand(1000.00..10_000.00).ceil(2)
+    Booking.create(user_id: user.id, spaceship_id: my_spaceship.id, start_date: DateTime.now.strftime("%F"), end_date: DateTime.now.next_day(7).strftime("%F"), price: price) unless user.id == my_spaceship.user_id
   end
 end
