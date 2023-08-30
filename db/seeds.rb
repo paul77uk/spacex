@@ -39,6 +39,8 @@ names.each do |name|
   last_name = name.split.last
 
   User.create!(
+    first_name: first_name,
+    last_name: last_name,
     email: Faker::Internet.unique.email,
     password: "password",
     phone_number: Faker::PhoneNumber.unique.phone_number_with_country_code
