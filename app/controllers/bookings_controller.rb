@@ -2,19 +2,18 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @spaceship = Spaceship.find(params[:spaceship_id])
-    @user = current_user
   end
 
   def create
-    # @spaceship = Spaceship.find(params[:spaceship_id])
-    # @booking = Booking.new(booking_params)
-    # @booking.spaceship = @spaceship
-    # @booking.user = @spaceship.user_id/current_user
-    # if @booking.save
-    #   redirect_to dashboard_path
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
+    @spaceship = Spaceship.find(params[:spaceship_id])
+    @booking = Booking.new(booking_params)
+    @booking.spaceship = @spaceship
+    @booking.user = current_user
+    if @booking.save
+      redirect_to pages_dashboard_path
+    else
+      render 'spaceships/:id', status: :unprocessable_entity
+    end
   end
 
   private

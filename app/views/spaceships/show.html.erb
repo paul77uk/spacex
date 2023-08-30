@@ -1,6 +1,24 @@
 <div class="container">
-  <%= render "card", spaceship: @spaceship %>
+<div class="d-flex justify-content-evenly m-5">
+  <div>
+    <%= render "card", spaceship: @spaceship %>
+  </div>
+  <div>
+    <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
+  </div>
+</div>
+
 
   <p> <%= @spaceship.description %></p>
   <p>Owner: <%= @spaceship.user.email %> </p>
+
+  <div data-controller="displaybookingform">
+    <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
+    <div class="d-none" data-displaybookingform-target="form">
+      <%= render "booking_form"%>
+    </div>
+  </div>
+
+
+
 </div>
