@@ -1,4 +1,7 @@
 class Spaceship < ApplicationRecord
+  attr_accessor :address
+
   belongs_to :user
-  has_many :bookings, dependent: :destroy
+  has_one_attached :photo
+  has_many :bookings
 end

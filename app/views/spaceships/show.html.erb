@@ -1,12 +1,16 @@
 <div class="container">
-<div class="d-flex justify-content-evenly m-5">
-  <div>
-    <%= render "card", spaceship: @spaceship %>
+  <div class="d-flex justify-content-evenly m-5">
+    <div>
+      <%= render "card", spaceship: @spaceship %>
+    </div>
+    <div>
+      <% if @spaceship.photo.attached? %>
+        <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
+      <% else %>
+        <%= image_tag('spaceship.jpeg') %>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
-  </div>
-</div>
 
 
   <p> <%= @spaceship.description %></p>
@@ -19,6 +23,12 @@
     </div>
   </div>
 
-
-
+  <% if @spaceship.bookings.empty? %>
+    <%= link_to "Delete this spaceship X",
+      spaceship_path(@spaceship),
+      data: {turbo_method: :delete, turbo_confirm: "Sure?"}
+    %>
+  <% else %>
+    <p>You cannot delete since it has bookings</p>
+  <% end %>
 </div>

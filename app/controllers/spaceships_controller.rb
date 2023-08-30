@@ -1,4 +1,6 @@
 class SpaceshipsController < ApplicationController
+  before_action :set_spaceship, only: [:show, :edit, :destroy]
+
   def index
     @spaceships = Spaceship.all
   end
@@ -21,6 +23,14 @@ class SpaceshipsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def destroy
+    @spaceship.destroy
+    redirect_to pages_dashboard_path, status: :see_other
   end
 
   private
