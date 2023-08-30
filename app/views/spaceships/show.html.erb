@@ -9,9 +9,11 @@
     <% end %>
   </div>
   <div>
-    <% if current_user.id == @spaceship.user_id %>
-      <%= link_to "Edit Spaceship", edit_spaceship_path(@spaceship) %>
-      <%= link_to "Delete Spaceship", spaceship_path(@spaceship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <% if user_signed_in? %>
+      <% if current_user.id == @spaceship.user_id %>
+        <%= link_to "Edit Spaceship", edit_spaceship_path(@spaceship) %>
+        <%= link_to "Delete Spaceship", spaceship_path(@spaceship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <% end %>
     <% end %>
   </div>
 </div>
