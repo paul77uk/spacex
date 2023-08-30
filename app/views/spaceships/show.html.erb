@@ -6,6 +6,8 @@
   <div>
     <% if @spaceship.photo.attached?  %>
       <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
+    <% else %>
+      <%= image_tag('spaceship.jpeg', :height => 250) %>
     <% end %>
   </div>
   <div>
@@ -30,7 +32,7 @@
           <% if user_signed_in? %>
             <%= render "booking_form"%>
           <% else %>
-          <%= render "sign_in" %>
+            <%= render "sign_in" %>
             <%# <%= link_to 'sign in first', new_user_session_path %>
           <% end %>
         </div>
