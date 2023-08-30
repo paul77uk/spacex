@@ -1,36 +1,44 @@
 <div class="container">
-  <div class="row">
+  <div class="row ">
     <div class="col-6">
       <h2 class="fw-bold my-3">My Bookings</h2>
       <% @current_user_bookings.each do |booking| %>
-      <div class="card text-dark bg-light mb-3 w-100">
-        <%= cl_image_tag(booking.spaceship.photo.key, crop: :fill) %>
-        <div class="card-body">
-            <h5 class="card-title fw-bold"><%= booking.spaceship.name %></h5>
-            <p class="card-text text-truncate"><%= booking.spaceship.description %></p>
-            <p class="card-text"><span class="fw-bold text-muted">color:</span> <%= booking.spaceship.color %></p>
-            <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= booking.spaceship.seats %></p>
-            <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= booking.spaceship.year %></p>
-            <p class="card-text"><span class="fw-bold text-muted">booked:</span> <%= booking.start_date %> - <%= booking.end_date %></p>
-            <p class="card-text"><span class="fw-bold text-muted">price:</span> £<%= booking.price %></p>
-        </div>
-
-      </div>
+        <%= link_to spaceship_path(booking.spaceship), class: 'text-decoration-none' do %>
+          <div class="card text-dark bg-light mb-3 w-75" style="height: 500px;">
+            <% if booking.spaceship.photo.attached?  %>
+              <%= cl_image_tag(booking.spaceship.photo.key, crop: :fill, height: 200) %>
+            <% end %>
+            <div class="card-body">
+                <h5 class="card-title fw-bold"><%= booking.spaceship.name %></h5>
+                <p class="card-text text-truncate"><%= booking.spaceship.description %></p>
+                <p class="card-text"><span class="fw-bold text-muted">color:</span> <%= booking.spaceship.color %></p>
+                <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= booking.spaceship.seats %></p>
+                <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= booking.spaceship.year %></p>
+                <p class="card-text"><span class="fw-bold text-muted">booked:</span> <%= booking.start_date %> - <%= booking.end_date %></p>
+                <p class="card-text"><span class="fw-bold text-muted">price:</span> £<%= booking.price %></p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="col-6">
       <h2 class="fw-bold my-3">My Spaceships</h2>
       <% @current_user_spaceships.each do |spaceship| %>
-        <div class="card text-dark bg-light mb-3 w-100">
-          <%= cl_image_tag(spaceship.photo.key, crop: :fit) %>
-          <div class="card-body">
-              <h5 class="card-title fw-bold"><%= spaceship.name %></h5>
-              <p class="card-text text-truncate"><%= spaceship.description %></p>
-              <p class="card-text"><span class="fw-bold text-muted">color:</span> <%= spaceship.color %></p>
-              <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= spaceship.seats %></p>
-              <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= spaceship.year %></p>
-          </div>
-      </div>
+        <%= link_to spaceship_path(spaceship), class: 'text-decoration-none' do %>
+          <div class="card text-dark bg-light mb-3 w-75" style="height: 500px;">
+            <% if spaceship.photo.attached?  %>
+              <%= cl_image_tag(spaceship.photo.key, crop: :fill, height: 200) %>
+            <% end %>
+            <div class="card-body">
+                <h5 class="card-title fw-bold"><%= spaceship.name %></h5>
+                <p class="card-text text-truncate"><%= spaceship.description %></p>
+                <p class="card-text"><span class="fw-bold text-muted">color:</span> <%= spaceship.color %></p>
+                <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= spaceship.seats %></p>
+                <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= spaceship.year %></p>
+                <p class="card-text"><span class="fw-bold text-muted">price:</span> £<%= spaceship.price %></p>
+            </div>
+        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
