@@ -1,18 +1,15 @@
 <div class="container mt-3">
   <div class="row justify-content-center">
-  <div class="col-6 d-flex" >
+  <div class="col-6 mb-3 form-inline" >
     <%= simple_form_for([ @spaceship, @booking]) do |f| %>
       <%= f.input :start_date, as: :date %>
       <%= f.input :end_date, as: :date %>
-      <div class="col-3 d-flex">
-       <p class="form-control">$120</p>
+      <p> Price:  </p>
+
+      <div class="col-9 d-flex">
+        <p class="form-control col-6 flex-grow-1">$120</p>
+        <%= f.submit "New booking", class: "btn btn-primary" %>
       </div>
-       <div class="col-3 d-flex">
-         <%= f.submit "New booking", class: "btn btn-primary" %>
-      </div>
-
-
-
     <% end %>
   </div>
   </div>
