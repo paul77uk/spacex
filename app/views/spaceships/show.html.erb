@@ -4,7 +4,9 @@
     <%= render "card", spaceship: @spaceship %>
   </div>
   <div>
-    <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
+    <% if @spaceship.photo.attached?  %>
+      <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
+    <% end %>
   </div>
   <div>
     <% if current_user.id == @spaceship.user_id %>
