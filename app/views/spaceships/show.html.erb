@@ -3,7 +3,7 @@
 <div class="container">
 <div class="d-flex justify-content-evenly m-5">
   <div>
-    <%= render "card", spaceship: @spaceship %>
+    <%= render "spaceships/card", spaceship: @spaceship %>
   </div>
   <div>
     <% if @spaceship.photo.attached?  %>
@@ -31,12 +31,7 @@
       <div data-controller="displaybookingform">
         <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
         <div class="d-none" data-displaybookingform-target="form">
-          <% if user_signed_in? %>
-            <%= render "booking_form"%>
-          <% else %>
-            <%= render "sign_in" %>
-            <%# <%= link_to 'sign in first', new_user_session_path %>
-          <% end %>
+          <%= render "spaceships/booking_form"%>
         </div>
       </div>
     <% end %>
