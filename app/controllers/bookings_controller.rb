@@ -1,30 +1,29 @@
 class BookingsController < ApplicationController
+  before_action :select_spaceship, only: %i[new create edit]
+  before_action :select_booking, only: %i[edit update destroy]
+
   def new
     @booking = Booking.new
-    @spaceship = Spaceship.find(params[:spaceship_id])
   end
 
   def create
-
-    @spaceship = Spaceship.find(params[:spaceship_id])
     @booking = Booking.new(booking_params)
     @booking.spaceship = @spaceship
     @booking.user = current_user
     if @booking.save
       redirect_to pages_dashboard_path
     else
-      render 'spaceships/:id', status: :unprocessable_entity
+      render 'spaceships/show', status: :unprocessable_entity
     end
   end
 
   def edit
-    @booking = Booking.find(params[:id])
-    @spaceship = Spaceship.find(params[:spaceship_id])
+    @unavailable_dates = @spaceship.unavailable_dates
+    @unavailable_dates.delete_if { |h| h[:booking_id] == params[:id].to_i }
   end
 
   def update
-    booking = Booking.find(params[:id])
-    if booking.update(booking_params)
+    if @booking.update(booking_params)
       redirect_to pages_dashboard_path
     else
       render :edit, status: :unprocessable_entity
@@ -32,12 +31,19 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to pages_dashboard_path
   end
 
   private
+
+  def select_spaceship
+    @spaceship = Spaceship.find(params[:spaceship_id])
+  end
+
+  def select_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
