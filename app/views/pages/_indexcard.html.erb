@@ -1,4 +1,8 @@
-<%= cl_image_tag(spaceship.photo.key,:width => 350, :height => 350, crop: :fit) %>
+<% if spaceship.photo.attached?  %>
+  <%= cl_image_tag(spaceship.photo.key,:width => 350, :height => 350, crop: :fit) %>
+<% else %>
+  <%= image_tag('spaceship.jpeg', :height => 250) %>
+<% end %>
 <h3><%= spaceship.name %></h3>
 <div class="spaceship-list ms-3">
   <ul class="spaceship-list">
