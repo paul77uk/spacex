@@ -4,11 +4,7 @@
   <%= image_tag('spaceship.jpeg', :height => 250) %>
 <% end %>
 
-<h3><%= spaceship.name %></h3>
-<div class="spaceship-list ms-3">
-  <ul class="spaceship-list">
-    <li><i class="fa-solid fa-paint-roller"> <%= spaceship.color %></i></li>
-    <li><i class="fa-solid fa-chair"> <%= spaceship.seats %></i></li>
-    <li><i class="fa-regular fa-calendar-days"> <%= spaceship.year %></i> </li>
-  </ul>
-</div>
+<h3 class="text-wrap mb-3"><%= spaceship.name %></h3>
+<i class="fa-solid fa-paint-roller mb-1"> <%= spaceship.color %></i>
+<i class="fa-solid fa-chair mb-1"> <%= spaceship.seats %></i>
+<i class="fa-regular fa-calendar-days mb-1"> <%= spaceship.year %></i>
