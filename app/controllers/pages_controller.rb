@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @current_user_bookings = current_user.bookings
+    @current_user_bookings = current_user.bookings.order(:start_date)
     @current_user_spaceships = current_user.spaceships
     # @current_user_spaceships = Spaceship.all
   end

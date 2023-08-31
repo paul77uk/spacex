@@ -1,12 +1,14 @@
 <div class="container">
-  <div class="row justify-centent-center">
+  <div class="row">
     <div class="col-md-6">
       <h2 class="fw-bold my-3 text-center">My Bookings</h2>
       <% @current_user_bookings.each do |booking| %>
         <%= link_to spaceship_path(booking.spaceship), class: 'text-decoration-none text-dark' do %>
-          <div class="card mx-auto text-dark bg-light mb-3" style="height: 500px; width: 350px;">
+          <div class="card mx-auto text-dark bg-light mb-3" style="height: 570px; width: 350px;">
             <% if booking.spaceship.photo.attached?  %>
               <%= cl_image_tag(booking.spaceship.photo.key, crop: :fit, width: 350) %>
+              <% else %>
+              <%= image_tag('spaceship.jpeg') %>
             <% end %>
             <div class="card-body">
                 <h5 class="card-title fw-bold"><%= booking.spaceship.name %></h5>
@@ -15,9 +17,12 @@
                 <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= booking.spaceship.seats %></p>
                 <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= booking.spaceship.year %></p>
                 <p class="card-text"><span class="fw-bold text-muted">booked:</span> <%= booking.start_date %> - <%= booking.end_date %></p>
-                <p class="card-text"><span class="fw-bold text-muted">price:</span> £<%= booking.price %></p>
+                <p class="card-text"><span class="fw-bold text-muted">price:</span> £<%= booking.spaceship.price %></p>
+                <%= link_to edit_spaceship_booking_path(booking.spaceship, booking), class: 'btn btn-primary position-absolute bottom-0 start-0 m-2' do %>
+                  <i class="fa-solid fa-pencil pe-1" style="color: #ffffff;"></i> Edit
+                <% end %>
                 <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger text-white position-absolute bottom-0 end-0 m-2' do %>
-                  <i class="fa-regular fa-trash-can" style="color: #ffffff;"></i> Delete
+                  <i class="fa-regular fa-trash-can pe-1" style="color: #ffffff;"></i> Delete
                 <% end %>
             </div>
           </div>
@@ -27,10 +32,12 @@
     <div class="col-md-6">
       <h2 class="fw-bold my-3 text-center">My Spaceships</h2>
       <% @current_user_spaceships.each do |spaceship| %>
-        <%= link_to spaceship_path(spaceship), class: 'text-decoration-none' do %>
-          <div class="card mx-auto text-dark bg-light mb-3" style="height: 500px; width: 350px;">
+        <%= link_to spaceship_path(spaceship), class: 'text-decoration-none text-dark' do %>
+          <div class="card mx-auto m-0 text-dark bg-light mb-3" style="height: 480px; width: 350px;">
             <% if spaceship.photo.attached?  %>
               <%= cl_image_tag(spaceship.photo.key, crop: :fit, width: 350) %>
+              <% else %>
+              <%= image_tag('spaceship.jpeg', width: 350) %>
             <% end %>
             <div class="card-body">
                 <h5 class="card-title fw-bold"><%= spaceship.name %></h5>
@@ -39,6 +46,7 @@
                 <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= spaceship.seats %></p>
                 <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= spaceship.year %></p>
                 <p class="card-text"><span class="fw-bold text-muted">price:</span> £<%= spaceship.price %></p>
+                <%= link_to '', class: 'invisible' %>
             </div>
         </div>
         <% end %>
