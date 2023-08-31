@@ -58,7 +58,7 @@ spaceship = Spaceship.new(
   price: rand(15..100),
   description: "With room for a crew of smugglers, rebels, and unlikely heroes, it has been navigating asteroid fields to striking the Death Star's core, the Millennium Falcon's storied history is etched into the stars. Be part of that stellar history!")
 
-file = URI.open("https://static.wikia.nocookie.net/starwars/images/5/52/Millennium_Falcon_Fathead_TROS.png/revision/latest?cb=20221029015218")
+file = URI.open("https://hips.hearstapps.com/hmg-prod/images/veh-ia-1751-1576604159.jpg")
 spaceship.photo.attach(io: file, filename: "Millenium Falcon", content_type: "image/png")
 spaceship.save
 
@@ -85,7 +85,7 @@ spaceship = Spaceship.new(
   description: "Embark on the most legendary voyage through space with the USS Enterprise, the starship that redefines exploration, diplomacy, and the human spirit! This ship is more than just a vessel—it's the heart and soul of the United Federation of Planets. With countless seats for numerous explorers and officers, it's the ultimate symbol of unity and boundless curiosity. From the five-
   year mission under Captain Kirk to the galaxy-spanning adventures of Captain Picard, the USS Enterprise stands as a testament to the power of diversity, cooperation, and the infinite potential of the final frontier.")
 
-file = URI.open("https://en.wikipedia.org/wiki/Starship_Enterprise#/media/File:USS_Enterprise_(NCC-1701-A).jpg")
+file = URI.open("https://hips.hearstapps.com/popularmechanics/assets/16/26/1467144815-starshipenterprise.jpg")
 spaceship.photo.attach(io: file, filename: "USS Enterprise", content_type: "image/jpg")
 spaceship.save
 
@@ -98,7 +98,7 @@ spaceship = Spaceship.new(
   year: 1978,
   description: "Get ready to soar through the galaxy on the wings of rebellion with the X-Wing Starfighter, the iconic vessel of choice for those who stand against tyranny! Gleaming in the spirited shade of Rebellion Red, this ship is more than just a starfighter—it's a symbol of hope for a galaxy in turmoil. With a single seat for one daring pilot, it's the ultimate ride for those who dare to take on the might of the Empire. From the Battle of Yavin to the skies of Endor, the X-Wing Starfighter has flown through history as a testament to bravery, camaraderie, and the eternal fight for freedom.")
 
-file = URI.open("https://static.wikia.nocookie.net/starwars/images/8/80/X-wing_Fathead.png/revision/latest?cb=20161004003846")
+file = URI.open("https://cdn.rebrickable.com/media/thumbs/mocs/moc-63672.jpg/1000x800.jpg")
 spaceship.photo.attach(io: file, filename: "X-Wing Starfighter", content_type: "image/png")
 spaceship.save
 
@@ -111,7 +111,7 @@ spaceship = Spaceship.new(
   year: 2005,
   description: "Gleaming in the enchanting hue of Infinite Improbability Gold, this ship defies space, time, and sanity itself. With seating for an unpredictable number of hitchhikers (and their improbable guests), it's the ultimate mode of transportation for anyone who loves a good laugh, a confusing paradox, and a well-timed Vogon poetry disruption. The Heart of Gold promises an adventure that's out of this world in every way.")
 
-file = URI.open("https://hitchhikers.fandom.com/wiki/Heart_of_Gold?file=Heartofgold_exterior1.jpg")
+file = URI.open("https://i.stack.imgur.com/zZDEH.jpg")
 spaceship.photo.attach(io: file, filename: "Heart of Gold", content_type: "image/jpg")
 spaceship.save
 
@@ -124,8 +124,8 @@ spaceship = Spaceship.new(
   year: 2997,
   description: "Ready for any space adventure, this delivery ship accomodates easily humans and aliens alike in comfort and retro Y2K humor.")
 
-file = URI.open("https://static.wikia.nocookie.net/enfuturama/images/0/05/Futurama_%28Opening_Sequence%29_-_32_%28HD%29.png")
-spaceship.photo.attach(io: file, filename: "Planet Express Ship", content_type: "image/png")
+file = URI.open("https://cdna.artstation.com/p/assets/images/images/038/720/766/large/daniil-gibbs-panet-express-camera-5-001.jpg?1623871624")
+spaceship.photo.attach(io: file, filename: "Planet Express Ship", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
@@ -137,7 +137,7 @@ spaceship = Spaceship.new(
   year: 2018,
   description: "Made on Earth by humans. Buckle up for the cosmic joyride of a lifetime with the Tesla Roadster in Space, the interplanetary convertible that's rewriting the rules of car advertising! Disclaimer: there is no propulsion system so consider this only if you're into space sailing")
 
-file = URI.open("https://fr.wikipedia.org/wiki/Tesla_Roadster_(engin_spatial)#/media/Fichier:Elon_Musk's_Tesla_Roadster_(40110297852).jpg")
+file = URI.open("https://cdn.carbuzz.com/gallery-images/1600/432000/900/432976.jpg")
 spaceship.photo.attach(io: file, filename: "Tesla Roadster", content_type: "image/jpg")
 spaceship.save
 
@@ -163,7 +163,7 @@ spaceship = Spaceship.new(
   year: 1986,
   description: "Brand new, has never flown once")
 
-file = URI.open("https://fr.wikipedia.org/wiki/Challenger_(navette_spatiale)#/media/Fichier:Challenger_launch_on_STS-7.jpg")
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/9c/S83-35803_%28cropped%29.jpg")
 spaceship.photo.attach(io: file, filename: "Challenger", content_type: "image/jpg")
 spaceship.save
 
@@ -249,8 +249,8 @@ spaceship = Spaceship.new(
   price: rand(15..100),
   year: 2020,
   description: "A hyperdrive-equipped multi-purpose transport, the Lambda-class T-4a shuttle was developed by Sienar Fleet Systems for use in the Imperial Navy. Repurposed by enthusiasts after the collapse of the Empire and now fully retrofitted.")
-file = URI.open("https://static.wikia.nocookie.net/starwars/images/6/6d/LambdaShuttle-Fathead.png/revision/latest/scale-to-width-down/1000?cb=20230802043430")
-spaceship.photo.attach(io: file, filename: "Lamba Shuttle", content_type: "image/png")
+file = URI.open("https://images8.alphacoders.com/982/982095.jpg")
+spaceship.photo.attach(io: file, filename: "Lamba Shuttle", content_type: "image/jpg")
 spaceship.save
 
 spaceship = Spaceship.new(
@@ -273,7 +273,7 @@ spaceship = Spaceship.new(
   price: rand(15..100),
   year: 1969,
   description: "Behold the Apollo 11, the cosmic Cadillac of the 1960s! Decked out in dazzling silver, this baby was NASA's ticket to the moon. With room for three adventurous souls, it is the ultimate space road trip vehicle.")
-file = URI.open("https://en.wikipedia.org/wiki/Apollo_11#/media/File:Apollo_11_Launch_-_GPN-2000-000630.jpg")
+file = URI.open("https://c.files.bbci.co.uk/14B41/production/_107910848_gettyimages-90738503.jpg")
 spaceship.photo.attach(io: file, filename: "Apollo 11", content_type: "image/jpg")
 spaceship.save
 
@@ -285,8 +285,8 @@ spaceship = Spaceship.new(
   price: rand(15..100),
   year: 2236,
   description: "Introducing the TIE Fighter, the snazzy chariot of choice for the fashionable villains of the Galactic Empire! Bathed in Imperial Black, this sleek starfighter is the epitome of space chic. With just enough room for one dashing pilot, the TIE Fighter is the go-to choice for those who like their spacecraft like their coffee—dark and with a side of daring. Zooming through the cosmos with unmatched panache, the TIE Fighter is a statement piece that screams, 'I'm with the Empire, and I look fabulous doing it!'")
-file = URI.open("https://starwars.fandom.com/wiki/TIE_Series?file=TIEfighter-Fathead.png")
-spaceship.photo.attach(io: file, filename: "TIE Fighter", content_type: "image/png")
+file = URI.open("https://lumiere-a.akamaihd.net/v1/images/vaders-tie-fighter_8bcb92e1.jpeg?region=0%2C1%2C1560%2C1170")
+spaceship.photo.attach(io: file, filename: "TIE Fighter", content_type: "image/jpg")
 spaceship.save
 
 User.all.each do |user|
