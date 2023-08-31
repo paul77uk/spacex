@@ -1,6 +1,5 @@
-<h1>Edit Spaceship</h1>
-<%= render "spaceships/form", spaceship: @spaceship %>
-<br>
-<div>
-  <%= link_to "Back to spaceships", spaceships_path %>
+<div class="d-flex justify-content-center">
+  <h1>Edit Spaceship</h1>
 </div>
+<%= render "spaceships/form", spaceship: @spaceship %><br>
+<%= link_to "Back to spaceships", spaceships_path, class:"text-align-center" %>
