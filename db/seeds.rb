@@ -33,6 +33,8 @@ names = [
 User.destroy_all
 Spaceship.destroy_all
 Booking.destroy_all
+Tag.destroy_all
+SpaceshipTag.destroy_all
 
 names.each do |name|
   first_name = name.split.first

@@ -22,9 +22,6 @@
   </div>
 </div>
 
-<div>
-  <%= @spaceship.tags each { |tag| tag.name } %>
-</div>
 
   <p> <%= @spaceship.description %></p>
   <p>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></p>
