@@ -43,7 +43,9 @@
   <% else %>
     <p><strong>Want to book? You have to <%= link_to "sign in", new_user_session_path %></strong></p>
   <% end %>
-
-
-
 </div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

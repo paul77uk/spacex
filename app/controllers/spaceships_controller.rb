@@ -11,6 +11,15 @@ class SpaceshipsController < ApplicationController
   end
 
   def show
+    @spaceships = Spaceship.geocoded
+    @markers = @spaceships.where(id: params[:id]).map do |spaceship|
+      {
+        lat: spaceship.latitude,
+        lng: spaceship.longitude,
+        info_window_html: render_to_string(partial: "spaceships/info_window", locals: {spaceship: spaceship}),
+        marker_html: render_to_string(partial: "spaceships/marker", locals: {spaceship: spaceship})
+      }
+    end
     @booking = Booking.new
   end
 
@@ -41,7 +50,7 @@ class SpaceshipsController < ApplicationController
   private
 
   def spaceship_params
-    params.require(:spaceship).permit(:name, :color, :seats, :year, :description, :photo)
+    params.require(:spaceship).permit(:name, :color, :seats, :year, :description, :photo, :address)
   end
 
   def set_spaceship
