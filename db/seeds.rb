@@ -51,6 +51,7 @@ end
 # spaceship = Spaceships seeds
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'China',
   name: "Millenium Falcon",
   color: "Grey",
   seats: 4,
@@ -64,6 +65,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'Spain',
   name: "TARDIS",
   color: "Blue",
   seats: 2,
@@ -77,6 +79,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'France',
   name: "USS Enterprise",
   color: "Gray",
   seats: 1000,
@@ -91,6 +94,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'Northern Ireland',
   name: "X-Wing Starfighter",
   color: "White and Orange",
   seats: 1,
@@ -105,6 +109,7 @@ spaceship.save
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
   name: "Heart of Gold",
+  address: 'China',
   color: "Shiny Gold",
   seats: 7,
   price: rand(15..100),
@@ -118,6 +123,7 @@ spaceship.save
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
   name: "Planet Express Ship",
+  address: 'Spain',
   color: "Green and Red",
   seats: 3,
   price: rand(15..100),
@@ -130,6 +136,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'France',
   name: "Tesla Roadster",
   color: "Red",
   seats: 2,
@@ -143,6 +150,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'Northern Ireland',
   name: "Sputnik 2",
   color: "Grey",
   seats: 1,
