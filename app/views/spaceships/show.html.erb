@@ -6,11 +6,13 @@
     <div class="d-flex justify-content-space-between">
 
       <div class="col-8">
-        <% if @spaceship.photo.attached?  %>
-          <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
-        <% else %>
-          <%= image_tag('spaceship.jpeg', :height => 250) %>
-        <% end %>
+        <div style="text-align: center">
+          <% if @spaceship.photo.attached?  %>
+            <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
+          <% else %>
+            <%= image_tag('spaceship.jpeg', :height => 250) %>
+          <% end %>
+        </div>
         <div>
           <p class="position-relative">About: <%= @spaceship.description %></p>
           <p>£<%= @spaceship.price %></p>
