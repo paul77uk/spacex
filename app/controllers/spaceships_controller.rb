@@ -12,6 +12,7 @@ class SpaceshipsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @unavailable_dates = @spaceship.unavailable_dates
   end
 
   def create
