@@ -7,19 +7,23 @@
       <h3>Take a trip to the stars</h3>
     </div>
   </div>
-    <div class="container mt-3">
-      <%= render "search_bar" %>
-      <h2>Spaceships</h2>
-      <div class="d-flex flex-wrap">
-        <%@spaceships.each do |spaceship| %>
-          <div class="card p-3 col-4 m-2">
-            <%= render "indexcard", spaceship: spaceship %>
-            <%= link_to "see details", spaceship_path(spaceship) %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+</div>
 
+<div class="container mt-3">
+  <%= render "search_bar" %>
+  <div class="d-flex justify-content-center">
+    <h2>Spaceships</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-wrap justify-content-start">
+      <%@spaceships.each do |spaceship| %>
+        <div class="card p-3 col-4 m-2 ">
+          <%= render "indexcard", spaceship: spaceship %>
+          <%= link_to "see details", spaceship_path(spaceship) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div style="width: 100%; height: 600px;"
