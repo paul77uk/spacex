@@ -8,13 +8,20 @@
 
 <div class="container mt-3">
   <%= render "search_bar" %>
-  <h2>Spaceships</h2>
-  <div class="d-flex flex-wrap">
-    <%@spaceships.each do |spaceship| %>
-      <div class="card p-3 col-4">
-        <%= render "/spaceships/card", spaceship: spaceship %>
-        <%= link_to "see details", spaceship_path(spaceship) %>
-      </div>
-    <% end %>
+  <div class="d-flex justify-content-center">
+    <h2>Spaceships</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-wrap justify-content-start">
+      <%@spaceships.each do |spaceship| %>
+        <div class="card p-3 col-4 m-2 ">
+          <div class="small-font-size">
+            <%# add photos %>
+            <%= render "/spaceships/card", spaceship: spaceship %>
+          </div>
+          <%= link_to "see details", spaceship_path(spaceship) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

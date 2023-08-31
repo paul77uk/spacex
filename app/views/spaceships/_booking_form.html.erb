@@ -5,9 +5,9 @@
       <%= f.input :end_date, as: :date %>
       <p> Total price:  </p>
 
-      <div class="col-9 d-flex">
-        <p class="form-control col-6 flex-grow-1"><%= @spaceship.price  %></p>
-        <%= f.submit "Confirm booking", class: "btn btn-primary" %>
+      <div class="col-9">
+        <p class="form-control col-6 flex-grow-1"><%= @spaceship.price  %></p><br>
+          <%= f.submit "Confirm booking", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
