@@ -1,0 +1,9 @@
+<%= cl_image_tag(spaceship.photo.key,:width => 350, :height => 350, crop: :fit) %>
+<h3><%= spaceship.name %></h3>
+<div class="spaceship-list ms-3">
+  <ul class="spaceship-list">
+    <li><i class="fa-solid fa-paint-roller"> <%= spaceship.color %></i></li>
+    <li><i class="fa-solid fa-chair"> <%= spaceship.seats %></i></li>
+    <li><i class="fa-regular fa-calendar-days"> <%= spaceship.year %></i> </li>
+  </ul>
+</div>
