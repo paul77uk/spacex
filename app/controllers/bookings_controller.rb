@@ -17,6 +17,20 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    @spaceship = Spaceship.find(params[:spaceship_id])
+  end
+
+  def update
+    booking = Booking.find(params[:id])
+    if booking.update(booking_params)
+      redirect_to pages_dashboard_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -24,7 +38,8 @@ class BookingsController < ApplicationController
   end
 
   private
+
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
