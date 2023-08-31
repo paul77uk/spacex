@@ -1,14 +1,15 @@
 <%= render "/pages/navbardark" %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
+<div class="d-flex">
+  <div><%= render "/pages/menu" %> </div>
+  <div>
+   <div class="col-md-6 d-flex">
       <h2 class="fw-bold my-3 text-center">My Bookings</h2>
       <% @current_user_bookings.each do |booking| %>
         <%= link_to spaceship_path(booking.spaceship), class: 'text-decoration-none text-dark' do %>
-          <div class="card mx-auto text-dark bg-light mb-3" style="height: 570px; width: 350px;">
+          <div class="card bg-light m-3" style="height: 470px; width: 450px;">
             <% if booking.spaceship.photo.attached?  %>
-              <%= cl_image_tag(booking.spaceship.photo.key, crop: :fit, width: 350) %>
+              <%= cl_image_tag(booking.spaceship.photo.key, crop: :fit, width: 170) %>
               <% else %>
               <%= image_tag('spaceship.jpeg') %>
             <% end %>
@@ -30,14 +31,16 @@
           </div>
         <% end %>
       <% end %>
-    </div>
-    <div class="col-md-6">
+  </div>
+
+  <div class="col-md-6 d-flex">
       <h2 class="fw-bold my-3 text-center">My Spaceships</h2>
       <% @current_user_spaceships.each do |spaceship| %>
         <%= link_to spaceship_path(spaceship), class: 'text-decoration-none text-dark' do %>
-          <div class="card mx-auto m-0 text-dark bg-light mb-3" style="height: 480px; width: 350px;">
+          <%# <div class="card mx-auto m-0 text-dark bg-light mb-3" style="height: 480px; width: 350px;"> %>
+          <div class="card m-3 bg-light" style="height: 400px; width: 350px;">
             <% if spaceship.photo.attached?  %>
-              <%= cl_image_tag(spaceship.photo.key, crop: :fit, width: 350) %>
+              <%= cl_image_tag(spaceship.photo.key, crop: :fit, width: 180) %>
               <% else %>
               <%= image_tag('spaceship.jpeg', width: 350) %>
             <% end %>
@@ -54,5 +57,12 @@
         <% end %>
       <% end %>
     </div>
+
+
   </div>
+</div>
+
+
+<div class="container">
+
 </div>
