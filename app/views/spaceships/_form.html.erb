@@ -1,6 +1,17 @@
-<%= simple_form_for(spaceship, data: { insert_in_list_target: "form", action:'submit->insert-in-list#send' }) do |f| %>
+<%= simple_form_for(spaceship) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="d-flex justify-content-center">
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :color %>
+      <%= f.input :seats %>
+      <%= f.input :year %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.file_field :photo %>
+    </div>
+  </div><br>
 
   <div class="form-inputs">
     <%= f.label :name %>:<br>
@@ -33,7 +44,7 @@
 
   <br>
 
-  <div class="form-actions btn-primary">
+  <div class="form-actions btn-primary d-flex justify-content-center">
     <%= f.button :submit %>
   </div>
 <% end %>

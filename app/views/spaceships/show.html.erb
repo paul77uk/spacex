@@ -1,43 +1,60 @@
 <%= render "/pages/navbardark" %>
 
 <div class="container">
-<div class="d-flex justify-content-evenly m-5">
-  <div>
-    <%= render "spaceships/card", spaceship: @spaceship %>
-  </div>
-  <div>
-    <% if @spaceship.photo.attached?  %>
-      <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
-    <% else %>
-      <%= image_tag('spaceship.jpeg', :height => 250) %>
-    <% end %>
-  </div>
-  <div>
-    <% if user_signed_in? %>
-      <% if current_user.id == @spaceship.user_id %>
-        <%= link_to "Edit Spaceship", edit_spaceship_path(@spaceship) %>
-        <%= link_to "Delete Spaceship", spaceship_path(@spaceship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+  <div class="m-5">
 
+    <div class="d-flex justify-content-space-between">
 
-  <p> <%= @spaceship.description %></p>
-  <p>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></p>
-
-  <% if user_signed_in? %>
-    <% if current_user.id != @spaceship.user_id %>
-      <div data-controller="displaybookingform">
-        <button class="btn btn-primary" data-action="click->displaybookingform#fire">To infinity and beyond!</button>
-        <div class="d-none" data-displaybookingform-target="form">
-          <%= render "spaceships/booking_form"%>
+      <div class="col-8">
+        <div style="text-align: center">
+          <% if @spaceship.photo.attached?  %>
+            <%= cl_image_tag(@spaceship.photo.key, :width => 450, :height => 250, crop: :fit) %>
+          <% else %>
+            <%= image_tag('spaceship.jpeg', :height => 250) %>
+          <% end %>
+        </div>
+        <div>
+          <p class="position-relative">About: <%= @spaceship.description %></p>
+          <p>£<%= @spaceship.price %></p>
+          <p>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></p>
+        </div>
+        <div>
+          <% if user_signed_in? %>
+            <% if current_user.id == @spaceship.user_id %>
+              <%= link_to "Edit Spaceship", edit_spaceship_path(@spaceship), style: "text-decoration: none;" %><br>
+              <%= link_to "Delete Spaceship", spaceship_path(@spaceship), style: "text-decoration: none;", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <% end %>
+          <% end %>
         </div>
       </div>
-    <% end %>
-  <% else %>
-    <p><strong>Want to book? You have to <%= link_to "sign in", new_user_session_path %></strong></p>
-  <% end %>
+
+      <div class="flex-column col-4">
+        <%= render "card", spaceship: @spaceship %>
+      </div>
+    </div>
+
+    <div>
+      <% if user_signed_in? %>
+        <% if current_user.id != @spaceship.user_id %>
+          <div data-controller="displaybookingform">
+            <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
+            <div class="d-none" data-displaybookingform-target="form">
+              <% if user_signed_in? %>
+                <%= render "booking_form"%>
+              <% else %>
+                <%= render "sign_in" %>
+                <%# <%= link_to 'sign in first', new_user_session_path %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p><strong>Want to book? You have to <%= link_to "sign in", new_user_session_path %></strong></p>
+      <% end %>
+
+    </div>
+
+  </div>
 </div>
 
 <div style="width: 100%; height: 600px;"
