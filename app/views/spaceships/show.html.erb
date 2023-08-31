@@ -27,7 +27,7 @@
   <% if user_signed_in? %>
     <% if current_user.id != @spaceship.user_id %>
       <div data-controller="displaybookingform">
-        <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
+        <button class="btn btn-primary" data-action="click->displaybookingform#fire">To infinity and beyond!</button>
         <div class="d-none" data-displaybookingform-target="form">
           <% if user_signed_in? %>
             <%= render "booking_form"%>

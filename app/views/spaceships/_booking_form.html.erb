@@ -1,5 +1,5 @@
 <div class="row justify-content-center mt-7">
-  <div class="col-6 mb-3 form-inline" >
+  <div class="col-6 mb-3 form-inline" data-controller="dayscount">
     <%= simple_form_for([ @spaceship, @booking]) do |f| %>
       <%= f.input :start_date, as: :date %>
       <%= f.input :end_date, as: :date %>
@@ -7,7 +7,7 @@
 
       <div class="col-9 d-flex">
         <p class="form-control col-6 flex-grow-1"><%= @spaceship.price  %></p>
-        <%= f.submit "Confirm booking", class: "btn btn-primary" %>
+        <%= f.submit "Beam Me Up, Captain!", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
