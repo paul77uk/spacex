@@ -18,6 +18,8 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @unavailable_dates = @spaceship.unavailable_dates
+    @unavailable_dates.delete_if { |h| h[:booking_id] == params[:id].to_i }
   end
 
   def update
