@@ -21,6 +21,8 @@
     <%= f.label :description %>:<br>
     <%= f.text_field :description %><br>
 
+    <%= f.input :tags, collection: Tag.all, input_html: {multiple: true, class: "multiple-select"}, as: :select, include_hidden: false %><br>
+
     <%= f.label :photo %>:<br>
     <%= f.file_field :photo %><br>
   </div>

@@ -15,12 +15,14 @@ class SpaceshipsController < ApplicationController
   end
 
   def create
+    @spaceship_tag = SpaceshipTag.new
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
     save_changes
   end
 
   def edit
+    @spaceship_tag = SpaceshipTag.new
   end
 
   def destroy
@@ -29,6 +31,9 @@ class SpaceshipsController < ApplicationController
   end
 
   def update
+    
+    params[:spaceship][:tags].each { |tag| SpaceshipTag.create(spaceship: @spaceship, tag_id: tag) }
+
     @spaceship.update(spaceship_params)
     save_changes
   end
