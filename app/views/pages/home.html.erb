@@ -7,6 +7,7 @@
       <h3>Take a trip to the stars</h3>
     </div>
   </div>
+<<<<<<< HEAD
   <div class="container mt-3">
     <%= render "search_bar" %>
     <div class="d-flex justify-content-center">
@@ -21,6 +22,23 @@
           </div>
         <% end %>
       </div>
+=======
+</div>
+
+<div class="container mt-3">
+  <%= render "search_bar" %>
+  <div class="d-flex justify-content-center">
+    <h2 style="color: black;">Spaceships</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-wrap justify-content-start">
+      <%@spaceships.each do |spaceship| %>
+        <div class="card p-3 col-4 m-2 " style="background-color: #e9ecef;">
+          <%= render "indexcard", spaceship: spaceship %>
+          <%= link_to "See Details", spaceship_path(spaceship), class: "btn btn-primary"%>
+        </div>
+      <% end %>
+>>>>>>> master
     </div>
   </div>
 
