@@ -13,7 +13,16 @@ class PagesController < ApplicationController
       }
     end
     if params[:query].present?
-      @spaceships = @spaceships.where("seats >= ?", params[:query].to_i)
+      sql_subquery = <<~SQL
+        spaceships.name @@ :query
+        OR spaceships.color @@ :query
+        OR spaceships.seats @@ :query
+        OR spaceships.year @@ :query
+        OR spaceships.address @@ :query
+        OR users.first_name @@ :query
+        OR users.last_name @@ :query
+      SQL
+      @spaceships = @spaceships.global_search(params[:query])
     end
   end
 

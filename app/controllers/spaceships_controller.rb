@@ -2,14 +2,6 @@ class SpaceshipsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_spaceship, only: %i[show edit update destroy]
 
-  # spaceships.name @@ :query
-  # OR spaceships.color @@ :query
-  # OR spaceships.seats @@ :query
-  # OR spaceships.year @@ :query
-  # OR spaceships.address @@ :query
-  # OR users.first_name @@ :query
-  # OR users.last_name @@ :query
-
   def index
     @spaceships = Spaceship.all
     if params[:query].present?
