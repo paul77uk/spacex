@@ -33,6 +33,8 @@ names = [
 User.destroy_all
 Spaceship.destroy_all
 Booking.destroy_all
+Tag.destroy_all
+SpaceshipTag.destroy_all
 
 names.each do |name|
   first_name = name.split.first
@@ -306,4 +308,11 @@ User.all.each do |user|
     # price = rand(1000.00..10_000.00).ceil(2)
     Booking.create(user_id: user.id, spaceship_id: my_spaceship.id, start_date: DateTime.now.strftime("%F"), end_date: DateTime.now.next_day(7).strftime("%F")) unless user.id == my_spaceship.user_id
   end
+end
+
+  # Tag seeds
+tags = %w[Light-Speed Familial Ecological Electric Interstellar Vintage Luxury Reliable]
+
+tags.each do |tag|
+  Tag.create!(name: tag)
 end
