@@ -1,10 +1,15 @@
-<% if spaceship.photo.attached?  %>
-  <%= cl_image_tag(spaceship.photo.key,:width => 350, :height => 350, crop: :fit) %>
-<% else %>
-  <%= image_tag('spaceship.jpeg', :height => 250) %>
-<% end %>
+<%# only fit homepage-img %>
+<div style="max-width: 100%; object-fit: cover;
+        width: 350; height: 200px;
+        overflow: hidden; align-items: center; display: flex; justify-content: center; align-items: center;">
+  <% if spaceship.photo.attached?  %>
+      <%= cl_image_tag(spaceship.photo.key,:width => 350, :height => 350, crop: :fit) %>
+  <% else %>
+    <%= image_tag('spaceship.jpeg', :height => 250) %>
+  <% end %>
+</div>
 
-<h3 class="text-wrap mb-3 mt-1 mx-auto"><%= spaceship.name %></h3>
+<h3 class="text-wrap mb-3 mt-1 mx-auto"><%= spaceship.name.truncate(27, separator: ' ') %></h3>
 <div class="d-flex gap-3 mx-3 align-items-center">
   <i class="card fa-solid fa-euro-sign mb-1 text-center p-2 shadow"> <%= spaceship.price %></i>
   <i class="card fa-solid fa-chair mb-1 text-center p-2 shadow"> <%= spaceship.seats %></i>
