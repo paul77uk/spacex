@@ -29,7 +29,7 @@
       </div>
 
       <div class="flex-column col-4">
-        <%= render "card", spaceship: @spaceship %>
+        <%= render "/spaceships/card", spaceship: @spaceship %>
       </div>
     </div>
 
@@ -40,9 +40,9 @@
             <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
             <div class="d-none" data-displaybookingform-target="form">
               <% if user_signed_in? %>
-                <%= render "booking_form"%>
+                <%= render "/spaceships/booking_form"%>
               <% else %>
-                <%= render "sign_in" %>
+                <%= render "/spaceships/sign_in" %>
                 <%# <%= link_to 'sign in first', new_user_session_path %>
               <% end %>
             </div>
