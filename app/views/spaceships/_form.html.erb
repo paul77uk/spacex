@@ -8,6 +8,11 @@
       <%= f.input :seats %>
       <%= f.input :year %>
       <%= f.input :address %>
+      <div>
+
+      <%= f.input :tags, collection: Tag.all, input_html: {multiple: true, placeholder: "Select a tag", data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
+
+      </div>
       <%= f.input :description %>
       <%= f.file_field :photo %>
     </div>
