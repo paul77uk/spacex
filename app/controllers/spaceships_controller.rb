@@ -1,6 +1,6 @@
 class SpaceshipsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  before_action :set_spaceship, only: [:show, :edit, :update, :destroy]
+  before_action :set_spaceship, only: %i[show edit update destroy]
 
   # spaceships.name @@ :query
   # OR spaceships.color @@ :query
@@ -45,12 +45,14 @@ class SpaceshipsController < ApplicationController
   end
 
   def create
+    @spaceship_tag = SpaceshipTag.new
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
     save_changes
   end
 
   def edit
+    @spaceship_tag = SpaceshipTag.new
   end
 
   def destroy
@@ -59,6 +61,9 @@ class SpaceshipsController < ApplicationController
   end
 
   def update
+    
+    params[:spaceship][:tags].each { |tag| SpaceshipTag.create(spaceship: @spaceship, tag_id: tag) }
+
     @spaceship.update(spaceship_params)
     save_changes
   end
