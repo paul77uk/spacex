@@ -1,23 +1,26 @@
 <%= render "/pages/navbar" %>
 
 <div class="background">
-<div class="banner">
-        <div class="my-3 gap-5 text-center">
-          <h1>Take a trip to the stars</h1>
-          <%= render "search_bar" %>
+  <div class="banner">
+    <div class="my-2 gap-5 text-center">
+        <h1 class="mb-3">Take a trip to the stars</h1>
+        <div class="w-50 mx-auto">
+           <%= render "search_bar" %>
         </div>
-      </div>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-md-6">
-        <div class="container ms-5 mb-3">
+    <div class="col-md-8">
+        <div class="container mb-3">
 
-          <div class="d-flex flex-wrap gap-3">
+          <div class="d-flex flex-wrap gap-3 justify-content-center">
             <%@spaceships.each do |spaceship| %>
-              <%= link_to spaceship_path(spaceship), class: 'text-decoration-none' do %>
-                <div class="card col-4 pb-1">
+              <%= link_to spaceship_path(spaceship), class: 'text-decoration-none', style: "width: 250px; " do %>
+                <div class="text-white card col-4 pb-1 w-auto">
                   <%= render "indexcard", spaceship: spaceship %>
-                  <div class="mx-auto">
-                    Located in <%= spaceship.address %>
+                  <div class="text-truncate mx-auto py-1 px-2 text-center w-100">
+                  <i class="fa-solid fa-earth-asia"></i>
+                    <%= spaceship.address %>
                   </div>
                 </div>
               <% end %>
@@ -26,7 +29,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div id="map" style="width: 100%; height: 600px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
