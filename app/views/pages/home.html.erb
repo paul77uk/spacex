@@ -1,36 +1,36 @@
 <%= render "/pages/navbar" %>
 
 <div class="background">
-<div class="banner">
-        <div class="my-3 gap-5 text-center">
-          <h1>Take a trip to the stars</h1>
-          <%= render "search_bar" %>
-        </div>
-      </div>
+  <div class="banner">
+    <div class="my-3 gap-5 text-center">
+      <h1>Take a trip to the stars</h1>
+      <%= render "search_bar" %>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-6">
-        <div class="container ms-5 mb-3">
-
-          <div class="d-flex flex-wrap gap-3">
-            <%@spaceships.each do |spaceship| %>
-              <%= link_to spaceship_path(spaceship), class: 'text-decoration-none' do %>
-                <div class="card col-4 pb-1">
-                  <%= render "indexcard", spaceship: spaceship %>
-                  <div class="mx-auto">
-                    Located in <%= spaceship.address %>
-                  </div>
+      <div class="container ms-5 mb-3">
+        <div class="d-flex flex-wrap gap-3">
+          <%@spaceships.each do |spaceship| %>
+            <%= link_to spaceship_path(spaceship), class: 'text-decoration-none' do %>
+              <div class="card col-4 pb-1">
+                <%= render "indexcard", spaceship: spaceship %>
+                <div class="mx-auto">
+                  Located in <%= spaceship.address %>
                 </div>
-              <% end %>
+              </div>
             <% end %>
-          </div>
+          <% end %>
         </div>
+      </div>
     </div>
 
     <div class="col-md-6">
       <div id="map" style="width: 100%; height: 600px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
-  </div>
 </div>

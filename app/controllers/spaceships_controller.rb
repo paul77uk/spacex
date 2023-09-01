@@ -4,6 +4,18 @@ class SpaceshipsController < ApplicationController
 
   def index
     @spaceships = Spaceship.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        spaceships.name @@ :query
+        OR spaceships.color @@ :query
+        OR spaceships.seats @@ :query
+        OR spaceships.year @@ :query
+        OR spaceships.address @@ :query
+        OR users.first_name @@ :query
+        OR users.last_name @@ :query
+      SQL
+      @spaceships = @spaceships.joins(:user).where(sql_subquery, query: params[:query])
+    end
   end
 
   def new
