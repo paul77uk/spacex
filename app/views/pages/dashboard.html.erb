@@ -3,14 +3,14 @@
 <div class="d-flex" data-controller="dashboard">
   <div><div class="menu">
   <div class="container p-4">
-  <button data-action="click->dashboard#fire"><h4>My bookings</h4></button>
+  <button class="link btn btn-primary" data-action="click->dashboard#fire"><h4>My bookings</h4></button>
   <ul>
     <% @current_user_bookings.each do |booking| %>
       <li><%= link_to booking.spaceship.name, spaceship_path(booking.spaceship), class: 'link'%></li>
     <% end %>
   </ul>
   <div class="menu-separator"><p>-</p></div>
-  <button data-action="click->dashboard#fire"><h4>My spaceships</h4></button>
+  <button class="link btn btn-primary" data-action="click->dashboard#fire"><h4>My spaceships</h4></button>
   <ul>
     <% @current_user_spaceships.each do |spaceship| %>
       <%= link_to spaceship.name, spaceship_path(spaceship), class: 'link' %>
