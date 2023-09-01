@@ -13,11 +13,11 @@
             <%= image_tag('spaceship.jpeg', :height => 250) %>
           <% end %>
         </div>
-        <div>
-          <p class="position-relative">About: <%= @spaceship.description %></p>
-          <p>£<%= @spaceship.price %></p>
-          <p>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></p>
-        </div>
+        <div><br>
+          <p class="position-relative"><h4 style="color: black;">About: </h4> <%= @spaceship.description %></p>
+          <h5>£ <%= @spaceship.price %> /Day</h5>
+          <h5>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></h5>
+        </div><br>
         <div>
           <% if user_signed_in? %>
             <% if current_user.id == @spaceship.user_id %>

@@ -13,8 +13,8 @@
               <%= image_tag('spaceship.jpeg') %>
             <% end %>
             <div class="card-body">
-                <h5 class="card-title fw-bold"><%= booking.spaceship.name %></h5>
-                <p class="card-text text-truncate"><%= booking.spaceship.description %></p>
+                <h5 class="card-title fw-bold"><%= booking.spaceship.name.truncate(20, separator: ' ') %></h5>
+                <p class="card-text text-truncate"><%= booking.spaceship.description.truncate(27, separator: ' ') %></p>
                 <p class="card-text"><span class="fw-bold text-muted">color:</span> <%= booking.spaceship.color %></p>
                 <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= booking.spaceship.seats %></p>
                 <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= booking.spaceship.year %></p>
@@ -44,7 +44,7 @@
                 <%= image_tag('spaceship.jpeg', width: 350) %>
               <% end %>
               <div class="card-body">
-                  <h5 class="card-title fw-bold"><%= spaceship.name %></h5>
+                  <h5 class="card-title fw-bold"><%= spaceship.name.truncate(20, separator: ' ') %></h5>
                   <p class="card-text text-truncate text-wrap "><%= spaceship.description.truncate(27, separator: ' ') %></p>
                   <p class="card-text"><span class="fw-bold text-muted">seats:</span> <%= spaceship.seats %></p>
                   <p class="card-text"><span class="fw-bold text-muted">year:</span> <%= spaceship.year %></p>

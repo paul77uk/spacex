@@ -9,11 +9,11 @@
 
       <div class="d-flex align-items-center text-center gap-3">
         <div class="border rounded-pill">
-          <%= link_to "Add your Spaceship", new_spaceship_path, class: ' linktext text-decoration-none px-3' %>
+          <%= link_to "Add your Spaceship", new_spaceship_path, class: 'linktext text-decoration-none px-3', style: 'color: #3E1F47;' %>
         </div>
         <% if user_signed_in? %>
           <div class="border rounded-pill">
-            <%= link_to 'Dashboard', pages_dashboard_path, class: 'linktext text-decoration-none px-3' %>
+            <%= link_to 'Dashboard', pages_dashboard_path, class: 'linktext text-decoration-none px-3', style: 'color: #3E1F47;'  %>
           </div>
           <div>Hello, <%= current_user.first_name %>!</div>
           <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'text-decoration-none btn btn-success' %>
