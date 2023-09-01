@@ -14,3 +14,9 @@
   color: white;
   background-color: rgb(164, 115, 164);
 }
+
+.rounded-pill {
+  border-radius: 20px;
+  transition: all .3s;
+  box-shadow: 0px 0px 30px 1px rgba(34, 39, 36, 0.3);
+}

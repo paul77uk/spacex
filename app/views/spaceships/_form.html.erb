@@ -9,7 +9,9 @@
       <%= f.input :year %>
       <%= f.input :address %>
       <div>
-      <%= f.input :tags, collection: Tag.all, input_html: {multiple: true, id: "tag-selector", class: "multiple-select", placeholder: "Select a tag"}, as: :select, include_hidden: false %>
+
+      <%= f.input :tags, collection: Tag.all, input_html: {multiple: true, placeholder: "Select a tag", data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
+
       </div>
       <%= f.input :description %>
       <%= f.file_field :photo %>
