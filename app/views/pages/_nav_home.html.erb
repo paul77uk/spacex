@@ -1,18 +1,20 @@
-<div class="navbar sticky-top navbar-expand-sm">
+<div id="dark" class="navbar sticky-top navbar-expand-sm">
     <div class="container-fluid">
 
       <div>
-        <%= link_to root_path, class: 'd-flex align-items-center gap-2 text-decoration-none' do %>
-          <i class="fa-solid fa-shuttle-space mx-1"></i> <h1>SpaceX</h1>
+        <%= link_to root_path, class: 'd-flex align-items-center gap-3 linktext text-decoration-none text-home' do %>
+          <i class="fa-solid fa-shuttle-space mx-1"></i> <h4 class="m-0">Spacex</h4>
           <% end %>
       </div>
 
+      <div><%= render 'pages/search_bar' %></div>
+
       <div class="d-flex align-items-center text-center gap-3">
-        <div class="border rounded-pill">
-          <%= link_to "Add your Spaceship", new_spaceship_path, class: ' linktext text-decoration-none px-3' %>
+        <div class="border rounded-pill py-1">
+          <%= link_to "Add your Spaceship", new_spaceship_path, class: 'linktext text-decoration-none px-3' %>
         </div>
         <% if user_signed_in? %>
-          <div class="border rounded-pill">
+          <div class="border rounded-pill py-1">
             <%= link_to 'Dashboard', pages_dashboard_path, class: 'linktext text-decoration-none px-3' %>
           </div>
           <div>Hello, <%= current_user.first_name %>!</div>
