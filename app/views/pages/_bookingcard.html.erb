@@ -1,4 +1,4 @@
-<%= link_to spaceship_path(booking.spaceship), class: 'text-decoration-none text-dark' do %>
+<%= link_to spaceship_path(booking.spaceship), class: 'text-decoration-none text-white' do %>
   <% if booking.spaceship.photo.attached?  %>
   <%= cl_image_tag(booking.spaceship.photo.key, crop: :fit, width: 250) %>
   <% else %>

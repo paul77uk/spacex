@@ -50,7 +50,7 @@
 
     <div class="individualdisplay mt-3 d-none" data-dashboard-target="booking">
       <% @current_user_bookings.each do |booking| %>
-        <div class="m-4">
+        <div class="dashboard-individual m-4">
           <div class="d-flex m-5">
             <div class="photo">
               <% if booking.spaceship.photo.attached?  %>
@@ -66,23 +66,25 @@
               <i class="fa-solid fa-chair mb-1"> <%= booking.spaceship.seats %></i>
               <i class="fa-regular fa-calendar-days mb-1"> <%= booking.spaceship.year %></i>
               <div class="booking mt-5">
-                <p class="font-weight-bold">Booked: <%= booking.start_date %> - <%= booking.end_date %></p>
-                <p class="font-weight-bold">Price: £<%= booking.spaceship.price %></p>
+                <p class="text">Booked: <%= booking.start_date %> / <%= booking.end_date %></p>
+                <p class="text">Price: £<%= booking.spaceship.price %></p>
               </div>
             </div>
+
+            <div class="description m-5">
+              <p><%= booking.spaceship.description %></p>
+              <%= link_to edit_spaceship_booking_path(booking.spaceship, booking), class: 'btn btn-primary' do %>
+                <i class="fa-solid fa-pencil pe-1" style="color: #ffffff;">  Edit</i>
+              <% end %>
+              <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger m-2' do %>
+                <i class="fa-regular fa-trash-can pe-1" style="color: #ffffff;">  Delete</i>
+              <% end %>
+            </div>
+
           </div>
 
-          <div class="description m-5">
-            <p><%= booking.spaceship.description %></p>
-            <%= link_to edit_spaceship_booking_path(booking.spaceship, booking), class: 'btn btn-primary' do %>
-              <i class="fa-solid fa-pencil pe-1" style="color: #ffffff;">  Edit</i>
-            <% end %>
-            <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger m-2' do %>
-              <i class="fa-regular fa-trash-can pe-1" style="color: #ffffff;">  Delete</i>
-            <% end %>
-          </div>
-      <% end %>
+        </div>
+     <% end %>
     </div>
-  </div>
 
 </div>
