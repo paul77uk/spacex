@@ -1,5 +1,4 @@
 class Spaceship < ApplicationRecord
-  include PgSearch::Model
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
@@ -11,9 +10,13 @@ class Spaceship < ApplicationRecord
     end
   end
 
-  pg_search_scope :search_by_info,
-    against: [ :name, :color, :seats, :year, :address ],
-    using: {
-      tsearch: { prefix: true }
-    }
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :name, :color, :seats, :year, :address, :price ],
+  associated_against: {
+    user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 end

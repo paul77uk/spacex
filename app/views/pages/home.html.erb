@@ -7,30 +7,7 @@
       <%= render "search_bar" %>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <div class="container ms-5 mb-3">
-        <div class="d-flex flex-wrap gap-3">
-          <%@spaceships.each do |spaceship| %>
-            <%= link_to spaceship_path(spaceship), class: 'text-decoration-none' do %>
-              <div class="card col-4 pb-1">
-                <%= render "indexcard", spaceship: spaceship %>
-                <div class="mx-auto">
-                  Located in <%= spaceship.address %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div id="map" style="width: 100%; height: 600px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
+  <p>-------------------------------</p>
+  <%= render "card_map" %>
+  <p>-------------------------------</p>
 </div>
