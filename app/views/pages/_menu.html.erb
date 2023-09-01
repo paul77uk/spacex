@@ -1,16 +1,16 @@
-<div class="menu">
+<div data-controller="dashboard" class="menu">
   <div class="container p-4">
   <h4>My bookings</h4>
   <ul>
     <% @current_user_bookings.each do |booking| %>
-      <li><%= booking.spaceship.name %></li>
+      <button class="" data-action="click->dashboard#fire" ><%= booking.spaceship.name%></button>
     <% end %>
   </ul>
-
+  <div class="menu-separator"><p>-</p></div>
   <h4>My spaceships</h4>
   <ul>
     <% @current_user_spaceships.each do |spaceship| %>
-      <li><%= spaceship.name %></li>
+      <%= link_to spaceship.name, spaceship_path(spaceship), class: 'link' %>
     <% end %>
   </ul>
   </div>
