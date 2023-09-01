@@ -8,41 +8,13 @@
       <%= f.input :seats %>
       <%= f.input :year %>
       <%= f.input :address %>
+      <div>
+      <%= f.input :tags, collection: Tag.all, input_html: {multiple: true, id: "tag-selector", class: "multiple-select", placeholder: "Select a tag"}, as: :select, include_hidden: false %>
+      </div>
       <%= f.input :description %>
       <%= f.file_field :photo %>
     </div>
   </div><br>
-
-  <div class="form-inputs">
-    <%= f.label :name %>:<br>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :color %>:<br>
-    <%= f.text_field :color %><br>
-
-    <%= f.label :seats %>:<br>
-    <%= f.text_field :seats %><br>
-
-    <%= f.label :year %>:<br>
-    <%= f.text_field :year %><br>
-
-    <%= f.label :address %>:<br>
-    <%= f.text_field :address %><br>
-
-      <%# <%= f.input :address,
-      input_html: {data: {address_autocomplete_target: "address"},class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-
-    <%= f.label :description %>:<br>
-    <%= f.text_field :description %><br>
-
-    <%= f.input :tags, collection: Tag.all, input_html: {multiple: true, class: "multiple-select"}, as: :select, include_hidden: false %><br>
-
-    <%= f.label :photo %>:<br>
-    <%= f.file_field :photo %><br>
-  </div>
-
-  <br>
 
   <div class="form-actions btn-primary d-flex justify-content-center">
     <%= f.button :submit %>

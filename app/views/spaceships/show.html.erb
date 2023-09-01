@@ -16,6 +16,11 @@
         <div>
           <p class="position-relative">About: <%= @spaceship.description %></p>
           <p>£<%= @spaceship.price %></p>
+          <div class="card-tags">
+            <% @spaceship.tags.each do |tag| %>
+              <span class="badge"><%= tag.name %></span>
+            <% end %>
+          </div>
           <p>Owner: <%= @spaceship.user.first_name %> <%= @spaceship.user.last_name %></p>
         </div>
         <div>

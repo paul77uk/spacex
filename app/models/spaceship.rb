@@ -6,6 +6,7 @@ class Spaceship < ApplicationRecord
   has_many :spaceship_tags, dependent: :destroy
   has_many :tags, through: :spaceship_tags
 
+  
   def unavailable_dates
     bookings.pluck(:start_date, :end_date, :id).map do |date|
       { from: date[0], to: date[1], booking_id: date[2] }

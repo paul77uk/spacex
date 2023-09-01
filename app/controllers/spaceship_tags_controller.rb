@@ -5,5 +5,6 @@ class SpaceshipTagsController < ApplicationController
     @tags.each do |tag|
       spaceship_tag = SpaceshipTag.new(spaceship: @spaceship, tag: tag)
       spaceship_tag.save
+    end
   end
 end
