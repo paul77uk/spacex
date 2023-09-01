@@ -1,0 +1,18 @@
+<div class="menu">
+  <div class="container p-4">
+  <h4>My bookings</h4>
+  <ul>
+    <% @current_user_bookings.each do |booking| %>
+      <li><%= booking.spaceship.name %></li>
+    <% end %>
+  </ul>
+
+  <h4>My spaceships</h4>
+  <ul>
+    <% @current_user_spaceships.each do |spaceship| %>
+      <li><%= spaceship.name %></li>
+    <% end %>
+  </ul>
+  </div>
+
+</div>

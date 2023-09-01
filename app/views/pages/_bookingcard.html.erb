@@ -1,0 +1,19 @@
+<%= link_to spaceship_path(booking.spaceship), class: 'text-decoration-none text-dark' do %>
+  <% if booking.spaceship.photo.attached?  %>
+  <%= cl_image_tag(booking.spaceship.photo.key, crop: :fit, width: 250) %>
+  <% else %>
+    <%= image_tag('spaceship.jpeg') %>
+  <% end %>
+  <h3 class="text-wrap mb-3"><%= booking.spaceship.name %></h3>
+  <i class="fa-solid fa-paint-roller mb-1"> <%= booking.spaceship.color %></i>
+  <i class="fa-solid fa-chair mb-1"> <%= booking.spaceship.seats %></i>
+  <i class="fa-regular fa-calendar-days mb-1"> <%= booking.spaceship.year %></i>
+  <p class="card-text"><span class="fw-bold text-muted">booked:</span> <%= booking.start_date %> - <%= booking.end_date %></p>
+  <p class="card-text"><span class="fw-bold text-muted">price:</span> £<%= booking.spaceship.price %></p>
+  <%= link_to edit_spaceship_booking_path(booking.spaceship, booking), class: 'btn btn-primary position-absolute bottom-0 start-0 m-2' do %>
+    <i class="fa-solid fa-pencil pe-1" style="color: #ffffff;"></i> Edit
+  <% end %>
+  <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger text-white position-absolute bottom-0 end-0 m-2' do %>
+   <i class="fa-regular fa-trash-can pe-1" style="color: #ffffff;"></i> Delete
+   <% end %>
+ <% end %>

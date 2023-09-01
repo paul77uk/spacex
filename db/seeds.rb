@@ -166,6 +166,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'Switzerland',
   name: "Challenger",
   color: "White",
   seats: 7,
@@ -205,6 +206,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'Switzerland',
   name: "Bebop",
   color: "Dark grey",
   seats: 5,
@@ -253,6 +255,7 @@ spaceship.save
 
 spaceship = Spaceship.new(
   user_id: User.all.sample.id,
+  address: 'Switzerland',
   name: "Lamba Shuttle",
   color: "White",
   seats: 20,
