@@ -11,12 +11,12 @@
   </div>
   <div class="row">
     <div class="col-md-8">
-        <div class="container ms-5 mb-3">
+        <div class="container mb-3">
 
           <div class="d-flex flex-wrap gap-3 justify-content-center">
             <%@spaceships.each do |spaceship| %>
               <%= link_to spaceship_path(spaceship), class: 'text-decoration-none', style: "width: 250px; " do %>
-                <div class="card col-4 pb-1 w-auto">
+                <div class=" text-white card col-4 pb-1 w-auto">
                   <%= render "indexcard", spaceship: spaceship %>
                   <div class="text-truncate mx-auto py-1 px-2 text-center w-100">
                   <i class="fa-solid fa-earth-asia"></i>
