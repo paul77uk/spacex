@@ -1,5 +1,5 @@
 <div class="row justify-content-center mt-7">
-  <div class="col-6 mb-3 form-inline" data-controller="datepicker"
+  <div class="col-6 mb-3 form-inline justify-content-center" data-controller="datepicker"
      data-datepicker-dates-value="<%= @unavailable_dates.to_json %>"
       data-datepicker-price-value="<%= @spaceship.price.to_json %>">
     <%= simple_form_for ([ @spaceship, @booking]) do |f| %>
