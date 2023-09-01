@@ -1,15 +1,15 @@
 <div class="row justify-content-center mt-7">
-  <div class="col-6 mb-3 form-inline">
+  <div class="col-6 mb-3 form-inline justify-content-center">
     <%= simple_form_for([ @spaceship, @booking]) do |f| %>
       <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @unavailable_dates.to_json} } %>
       <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @unavailable_dates.to_json } } %>
 
       <%# <% if @spaceship %>
-          <div class="d-flex col-9 justify-content-between flex-grow-1">
+          <div class="d-flex col-6 justify-content-between flex-grow-1">
             <p> Total price:  </p>
             <strong><%= @spaceship.price  %>🖖</strong>
           </div>
-        <div class="col-9 d-flex justify-content-center">
+        <div class="">
           <%= f.submit "Beam Me Up, Captain!", class: "btn btn-primary" %>
         </div>
       <% end %>
