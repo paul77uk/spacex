@@ -61,7 +61,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def update
-    
+
     params[:spaceship][:tags].each { |tag| SpaceshipTag.create(spaceship: @spaceship, tag_id: tag) }
 
     @spaceship.update(spaceship_params)
