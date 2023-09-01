@@ -3,14 +3,14 @@
 <div class="d-flex" data-controller="dashboard">
   <div><div class="menu">
   <div class="container p-4">
-  <button><h4 data-action="click->dashboard#fire" >My bookings</h4></button>
+  <button data-action="click->dashboard#fire"><h4>My bookings</h4></button>
   <ul>
     <% @current_user_bookings.each do |booking| %>
       <li><%= link_to booking.spaceship.name, spaceship_path(booking.spaceship), class: 'link'%></li>
     <% end %>
   </ul>
   <div class="menu-separator"><p>-</p></div>
-  <h4>My spaceships</h4>
+  <button data-action="click->dashboard#fire"><h4>My spaceships</h4></button>
   <ul>
     <% @current_user_spaceships.each do |spaceship| %>
       <%= link_to spaceship.name, spaceship_path(spaceship), class: 'link' %>
@@ -22,33 +22,7 @@
 
   <div>
 
-    <div class="mt-3 normaldisplay" data-dashboard-target="cards">
-      <div class="text-dashboard">
-        <h2>My bookings</h2>
-      </div>
-      <div class="col-md-6 d-flex">
-          <% @current_user_bookings.each do |booking| %>
-            <div class="card p-3 col-4 m-2 ">
-                  <%= render "/pages/bookingcard", booking: booking %>
-            </div>
-          <% end %>
-      </div>
-
-      <div class="separator"><p>h</p></div>
-
-      <div class="text-dashboard">
-          <h2>My spaceships</h2>
-      </div>
-      <div class="col-md-6">
-        <%@current_user_spaceships.each do |spaceship| %>
-          <div class="card p-3 col-4 m-2 ">
-            <%= render "/pages/dashboardcard", spaceship: spaceship %>
-           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="individualdisplay mt-3 d-none" data-dashboard-target="booking">
+    <div class="individualdisplay mt-3" data-dashboard-target="booking">
       <% @current_user_bookings.each do |booking| %>
         <div class="dashboard-individual m-4">
           <div class="d-flex m-5">
@@ -79,6 +53,36 @@
               <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger m-2' do %>
                 <i class="fa-regular fa-trash-can pe-1" style="color: #ffffff;">  Delete</i>
               <% end %>
+            </div>
+
+          </div>
+
+        </div>
+     <% end %>
+    </div>
+
+
+
+    <div class="individualdisplay mt-3 d-none" data-dashboard-target="spaceship">
+      <% @current_user_spaceships.each do |spaceship| %>
+        <div class="dashboard-spaceship m-4">
+          <div class="d-flex m-5">
+            <div class="photo">
+              <% if spaceship.photo.attached?  %>
+              <%= cl_image_tag(spaceship.photo.key, crop: :fit, width: 450) %>
+              <% else %>
+                <%= image_tag('spaceship.jpeg') %>
+              <% end %>
+            </div>
+
+            <div class="titles m-5">
+              <h3 class="text-wrap mb-3"><%= spaceship.name %></h3>
+              <i class="fa-solid fa-paint-roller mb-1"> <%= spaceship.color %></i>
+              <i class="fa-solid fa-chair mb-1"> <%= spaceship.seats %></i>
+              <i class="fa-regular fa-calendar-days mb-1"> <%= spaceship.year %></i>
+
+            <div class="description m-5">
+              <p><%= spaceship.description %></p>
             </div>
 
           </div>
