@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["form"]
 
   connect() {
-    console.log("hello")
+    console.log("display booking form controller active")
   }
 
   fire() {

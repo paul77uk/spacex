@@ -1,18 +1,23 @@
 <div class="row justify-content-center mt-7">
-  <div class="col-6 mb-3 form-inline justify-content-center">
-    <%= simple_form_for([ @spaceship, @booking]) do |f| %>
-      <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @unavailable_dates.to_json} } %>
-      <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_dates_value: @unavailable_dates.to_json } } %>
+  <div class="col-6 mb-3 form-inline justify-content-center" data-controller="datepicker"
+     data-datepicker-dates-value="<%= @unavailable_dates.to_json %>"
+      data-datepicker-price-value="<%= @spaceship.price.to_json %>">
+    <%= simple_form_for ([ @spaceship, @booking]) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <%# <% if @spaceship %>
-          <div class="d-flex col-6 justify-content-between flex-grow-1">
+      <%= f.input :start_date, as: :string, input_html: { data: { datepicker_target: "start", action: "change->datepicker#startDateInput" } } %>
+      <%= f.input :end_date, as: :string, input_html: { data: { datepicker_target: "end", action: "change->datepicker#endDateInput" } } %>
+
+          <div class="d-flex col-9 justify-content-between flex-grow-1">
             <p> Total price:  </p>
-            <strong><%= @spaceship.price  %>🖖</strong>
+            <strong data-datepicker-target="price"></strong>
           </div>
-        <div class="">
-          <%= f.submit "Beam Me Up, Captain!", class: "btn btn-primary" %>
+
+        <div class="col-9 d-flex justify-content-center" >
+          <%= f.submit "Beam Me Up, Captain!", class: "btn btn-primary" , disabled: true, data: { datepicker_target: "confirm" } %>
         </div>
       <% end %>
-    <%# <% end %>
+
   </div>
 </div>

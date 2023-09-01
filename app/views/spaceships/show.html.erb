@@ -53,9 +53,9 @@
                 <button class="btn btn-primary" data-action="click->displaybookingform#fire">Book</button>
                 <div class="d-none" data-displaybookingform-target="form">
                   <% if user_signed_in? %>
-                    <%= render "booking_form"%>
+                    <%= render "/spaceships/booking_form"%>
                   <% else %>
-                    <%= render "sign_in" %>
+                    <%= render "/spaceships/sign_in" %>
                   <% end %>
                 </div>
               </div>
@@ -64,8 +64,6 @@
             <p><strong>Want to book? You have to <%= link_to "sign in", new_user_session_path %></strong></p>
           <% end %>
         </div>
-
-
   </div>
 </div>
 
