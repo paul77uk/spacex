@@ -3,7 +3,14 @@
   background-color: white;
 }
 
-.linktext {
+.hometext {
+  color: $purple;
+  text-decoration: none;
+  font-style: bold;
+  text-shadow: 1px 1px rgba($color: $purple, $alpha: 0.5);
+}
+
+.hometext:hover {
   color: white;
-  text-shadow: 1px 1px rgba($color: $purple, $alpha: 0.8);
+  background-color: rgb(164, 115, 164);
 }
