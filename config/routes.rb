@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
   resources :spaceships, except: [:index] do
     resources :bookings, only: %i[create edit update]
     resources :spaceship_tags, only: %i[create]
