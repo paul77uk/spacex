@@ -46,12 +46,14 @@
 
             <div class="description m-5">
               <p><%= booking.spaceship.description %></p>
-              <%= link_to edit_spaceship_booking_path(booking.spaceship, booking), class: 'btn btn-primary' do %>
-                <i class="fa-solid fa-pencil pe-1" style="color: #ffffff;">  Edit</i>
-              <% end %>
-              <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger m-2' do %>
-                <i class="fa-regular fa-trash-can pe-1" style="color: #ffffff;">  Delete</i>
-              <% end %>
+              <div>
+                <%= link_to edit_spaceship_booking_path(booking.spaceship, booking), class: 'btn btn-primary my-2' do %>
+                  <i class="fa-solid fa-pencil pe-1" style="color: #ffffff;">  Edit</i>
+                <% end %>
+                <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' do %>
+                  <i class="fa-regular fa-trash-can pe-1" style="color: #ffffff;">  Delete</i>
+                <% end %>
+              </div>
             </div>
 
           </div>
